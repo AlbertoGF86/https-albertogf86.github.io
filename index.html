@@ -13,490 +13,395 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    :root{
-      --bg:#0a0a0a;
-      --card:#111111;
-      --text:#f5f5f5;
-      --muted:#8c8c8c;
-      --line:rgba(255,255,255,0.08);
-      --accent:#d6c3a5;
+    :root {
+      --bg: #0a0a0a;
+      --card: #111111;
+      --text: #f5f5f5;
+      --muted: #8c8c8c;
+      --line: rgba(255, 255, 255, 0.08);
+      --accent: #d6c3a5;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:'Inter',sans-serif;
-      -webkit-font-smoothing:antialiased;
-      overflow-x:hidden;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:24px 7vw;
-  z-index:1000;
-  backdrop-filter:blur(14px);
-  background:rgba(10,10,10,0.55);
-  border-bottom:1px solid rgba(255,255,255,0.05);
-}
 
-.nav-logo{
-  font-size:14px;
-  letter-spacing:-0.02em;
-  font-weight:600;
-}
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 4%;
+      border-bottom: 1px solid var(--line);
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+    }
 
-.nav-links{
-  display:flex;
-  gap:32px;
-}
+    .nav-logo {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
 
-.nav-links a{
-  font-size:13px;
-  color:var(--muted);
-  transition:0.25s;
-}
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
 
-.nav-links a:hover{
-  color:var(--text);
-}
+    .nav-links a {
+      transition: color 0.2s;
+    }
 
-@media(max-width:768px){
+    .nav-links a:hover {
+      color: var(--text);
+    }
 
-  .nav{
-    padding:20px 24px;
-  }
+    /* SECTIONS GENERICS */
+    section {
+      padding: 140px 4% 100px 4%;
+      border-bottom: 1px solid var(--line);
+      max-width: 1300px;
+      margin: 0 auto;
+    }
 
-  .nav-links{
-    display:none;
-  }
-
-}
-    section{
-      padding:120px 7vw;
-      border-bottom:1px solid var(--line);
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 40px;
     }
 
     /* HERO */
-
-    .hero{
-      padding-top:120px;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      position:relative;
+    .hero {
+      padding-top: 220px;
+      padding-bottom: 140px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .eyebrow{
-      color:var(--muted);
-      font-size:12px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      margin-bottom:24px;
+    .eyebrow {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 24px;
     }
 
-    h1{
-      font-size:clamp(54px,10vw,120px);
-      line-height:0.95;
-      letter-spacing:-0.06em;
-      max-width:1000px;
-      font-weight:500;
-      margin-bottom:32px;
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 30px;
     }
 
-    .hero p{
-      max-width:620px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.7;
-      margin-bottom:42px;
-    }
-
-    .btn{
-      display:inline-flex;
-      width:fit-content;
-      padding:16px 28px;
-      border:1px solid var(--line);
-      color:var(--text);
-      font-size:13px;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      transition:0.25s;
-    }
-
-    .btn:hover{
-      border-color:var(--accent);
-      color:var(--accent);
-    }
-
-    /* ABOUT */
-
-    .section-label{
-      font-size:12px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:32px;
-    }
-
-    .about-text{
-      max-width:850px;
-      font-size:34px;
-      line-height:1.4;
-      letter-spacing:-0.04em;
-      font-weight:300;
-    }
-
-    .accent{
-      color:var(--accent);
+    .hero p {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 650px;
     }
 
     /* SERVICES */
-
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:32px;
-      margin-top:50px;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      margin-top: 20px;
     }
 
-    .service-card{
-      border:1px solid var(--line);
-      padding:36px;
-      background:var(--card);
+    .service-card {
+      background: var(--bg);
+      padding: 50px 30px;
     }
 
-    .service-card h3{
-      font-size:24px;
-      margin-bottom:14px;
-      font-weight:500;
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
 
-    .service-card p{
-      color:var(--muted);
-      line-height:1.7;
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-weight: 300;
     }
 
-    /* PROJECT */
-
-    .project-image{
-  width:100%;
-  border:1px solid var(--line);
-  margin-top:40px;
-  border-radius:12px;
-}
-
-.project-image.large{
-  max-width:100%;
-}
-
-.project-image.medium{
-  max-width:80%;
-}
-
-.project-image.small{
-  max-width:55%;
-}
-
-.project-image.center{
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:40px;
-}
-
-    .project-title{
-      font-size:42px;
-      margin-bottom:20px;
-      letter-spacing:-0.04em;
+    /* PROYECTOS */
+    .project-header {
+      max-width: 700px;
+      margin-bottom: 60px;
     }
 
-    .project-desc{
-      max-width:720px;
-      color:var(--muted);
-      line-height:1.8;
-      margin-bottom:24px;
+    .project-header h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
     }
 
-    .stack{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:24px;
+    .project-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.5;
+      margin-bottom: 30px;
     }
 
-    .tag{
-      border:1px solid var(--line);
-      padding:10px 16px;
-      font-size:12px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:0.08em;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 6px 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      color: var(--muted);
+    }
+
+    /* IMAGES SHOWCASE */
+    .project-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 80px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-image.large {
+      width: 100%;
+    }
+
+    .project-image.medium {
+      width: 80%;
+    }
+
+    .project-image.small {
+      width: 55%;
+    }
+
+    .center {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* CONTACT */
-
-    .contact-text{
-      max-width:700px;
-      font-size:28px;
-      line-height:1.5;
-      letter-spacing:-0.03em;
-      margin-bottom:32px;
+    #contact {
+      max-width: 800px;
+      border-bottom: none;
+      padding-bottom: 160px;
     }
 
-    .email-link{
-      font-size:20px;
-      color:var(--accent);
+    .contact-text {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    .email-link {
+      font-size: 1.2rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .email-link:hover {
+      color: var(--muted);
+      border-color: var(--muted);
     }
 
     /* FOOTER */
-
-    footer{
-      padding:40px 7vw;
-      display:flex;
-      justify-content:space-between;
-      color:var(--muted);
-      font-size:13px;
+    footer {
+      padding: 40px 4%;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--muted);
     }
 
-    /* MOBILE */
-
-    @media(max-width:768px){
-
-      section{
-        padding:90px 24px;
+    @media(max-width: 768px) {
+      .project-image.medium, .project-image.small {
+        width: 100%;
       }
-
-      h1{
-        font-size:58px;
+      section {
+        padding: 100px 4% 60px 4%;
       }
-
-      .about-text{
-        font-size:26px;
+      .hero {
+        padding-top: 160px;
       }
-
-      .services-grid{
-        grid-template-columns:1fr;
-      }
-
-      .project-title{
-        font-size:32px;
-      }
-
-      footer{
-        flex-direction:column;
-        gap:12px;
-        padding:30px 24px;
-      }
-
     }
-
   </style>
 </head>
-
 <body>
 
-  <section class="hero">
+  <nav class="nav">
+    <div class="nav-logo">
+      Alberto Gálvez
+    </div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
+  <section class="hero">
     <div class="eyebrow">
       Automatización · IA · Sistemas Digitales
     </div>
-
-    <h1>
-      Creo sistemas inteligentes para negocios modernos.
-    </h1>
-
+    <h1>Automatización + IA para negocios modernos</h1>
     <p>
-      Automatización, inteligencia artificial y experiencias digitales minimalistas para marcas y negocios que quieren trabajar mejor y más rápido.
+      Creo sistemas inteligentes, automatizaciones y experiencias digitales minimalistas para negocios y marcas.
     </p>
-
-    <a href="#proyectos" class="btn">
-      Ver proyectos
-    </a>
-
-  </section>
-
-  <section>
-
-    <div class="section-label">
-      Sobre mí
-    </div>
-
-    <div class="about-text">
-      Técnico audiovisual especializado en
-      <span class="accent">automatización, IA y sistemas digitales modernos.</span>
-      Combino creatividad, diseño y automatización para construir soluciones reales para negocios.
-    </div>
-
   </section>
 
   <section id="services">
-
     <div class="section-label">
       Servicios
     </div>
-
     <div class="services-grid">
-
       <div class="service-card">
-        <h3>Automatización IA</h3>
-        <p>
-          Sistemas inteligentes para ahorrar tiempo, organizar procesos y automatizar tareas repetitivas.
-        </p>
+        <h3>Automatización con IA</h3>
+        <p>Integración de modelos de lenguaje avanzados para procesar, clasificar y enriquecer la información de tu negocio en tiempo real.</p>
       </div>
-
       <div class="service-card">
-        <h3>Lead Systems</h3>
-        <p>
-          Captación automatizada de clientes con formularios, CRM, IA y notificaciones inteligentes.
-        </p>
+        <h3>Sistemas de captación</h3>
+        <p>Diseño de flujos distribuidos que conectan tus canales de adquisición con herramientas de seguimiento comercial sin intervención manual.</p>
       </div>
-
       <div class="service-card">
-        <h3>Landing Pages</h3>
-        <p>
-          Webs modernas, minimalistas y enfocadas en conversión y presencia digital premium.
-        </p>
+        <h3>Landing Pages Premium</h3>
+        <p>Interfaces minimalistas orientadas a la tecnología startup, ultra rápidas y optimizadas para maximizar la conversión.</p>
       </div>
-
       <div class="service-card">
-        <h3>Workflows</h3>
-        <p>
-          Integración entre herramientas, automatización empresarial y flujos personalizados.
-        </p>
+        <h3>Workflows para negocios</h3>
+        <p>Optimización y sincronización de herramientas en la nube (Make, APIs, CRMs) para eliminar completamente las tareas repetitivas.</p>
       </div>
-
     </div>
-
   </section>
 
-  <section id="proyectos">
-
+  <section id="projects">
     <div class="section-label">
-      Proyecto Destacado
+      Proyectos Seleccionados
     </div>
 
-    <h2 class="project-title">
-      AI Lead Automation System — Aeschi Studio
-    </h2>
+    <div class="project-header">
+      <h3>Aeschi Studio — AI Lead System</h3>
+      <p>
+        Landing page premium conectada a automatización IA, CRM y clasificación inteligente de clientes potenciales.
+      </p>
 
-    <p class="project-desc">
-      Sistema inteligente de captación de leads conectado a IA, CRM, Google Sheets, Telegram y automatización avanzada mediante Make.
-    </p>
-
-    <div class="stack">
-
-      <div class="tag">Make</div>
-      <div class="tag">Gemini AI</div>
-      <div class="tag">Telegram</div>
-      <div class="tag">Google Sheets</div>
-      <div class="tag">GitHub Pages</div>
-
+      <div class="tags">
+        <div class="tag">Gemini AI</div>
+        <div class="tag">Make</div>
+        <div class="tag">Telegram</div>
+        <div class="tag">Google Sheets</div>
+        <div class="tag">GitHub Pages</div>
+      </div>
     </div>
 
     <img
-  src="images/01-landing-page.jpg"
-  alt="Landing Page"
-  class="project-image medium center"
-/>
+      src="images/01-landing-page.jpg"
+      alt="Landing Page"
+      class="project-image medium center"
+    />
 
-<img
-  src="images/02-contact-form.jpg"
-  alt="Contact Form"
-  class="project-image small center"
-/>
+    <img
+      src="images/02-contact-form.jpg"
+      alt="Contact Form"
+      class="project-image small center"
+    />
 
-<img
-  src="images/03-make-automation.jpg"
-  alt="Make Automation"
-  class="project-image large"
-/>
+    <img
+      src="images/03-make-automation.jpg"
+      alt="Make Automation"
+      class="project-image large"
+    />
 
-<img
-  src="images/04-google-sheets-crm.jpg"
-  alt="Google Sheets CRM"
-  class="project-image medium center"
-/>
+    <img
+      src="images/04-google-sheets-crm.jpg"
+      alt="Google Sheets CRM"
+      class="project-image medium center"
+    />
 
-<img
-  src="images/05-telegram-ai.jpg"
-  alt="Telegram AI"
-  class="project-image small center"
-/>
+    <img
+      src="images/05-telegram-ai.jpg"
+      alt="Telegram AI"
+      class="project-image small center"
+    />
 
-<img
-  src="images/06-email-automation.jpg"
-  alt="Email Automation"
-  class="project-image small center"
-/>
-
+    <img
+      src="images/06-email-automation.jpg"
+      alt="Email Automation"
+      class="project-image small center"
+    />
   </section>
 
   <section id="contact">
-
     <div class="section-label">
       Contacto
     </div>
-
     <div class="contact-text">
       Disponible para proyectos de automatización, IA y sistemas digitales para negocios modernos.
     </div>
-
     <a href="mailto:grifotasbass@gmail.com" class="email-link">
       grifotasbass@gmail.com
     </a>
-   
   </section>
 
   <footer>
-
     <div>
       Alberto Gálvez
     </div>
-
     <div>
-      Automatización + IA · 2026
+      © 2026 — Basado en Suiza
     </div>
-
   </footer>
 
 </body>
-  <nav class="nav">
-
-  <div class="nav-logo">
-    Alberto Gálvez
-  </div>
-
-  <div class="nav-links">
-    <a href="#proyectos">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-</nav>
 </html>
