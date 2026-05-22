@@ -1,1 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alberto Gálvez — Automatización + IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #121212;
+            --border-color: #222222;
+            --text-main: #ededed;
+            --text-muted: #888888;
+            --accent-color: #ffffff;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Header / Nav --- */
+        header {
+            padding: 2.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Section Base --- */
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: -0.03em;
+        }
+
+        /* --- Hero --- */
+        #hero {
+            padding: 8rem 0 7rem 0;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000000;
+            padding: 0.8rem 1.6rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        /* --- Sobre Mí --- */
+        #about p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        #about p strong {
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        /* --- Servicios --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .service-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Proyectos --- */
+        .project-meta {
+            margin-bottom: 3rem;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background-color: #161616;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Showcase de Imágenes Estilo Agencia Premium */
+        .project-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 2px solid var(--border-color);
+            padding-left: 0.75rem;
+        }
+
+        /* --- Contacto --- */
+        #contact {
+            border-bottom: none;
+            padding-bottom: 10rem;
+        }
+
+        .contact-wrapper {
+            max-width: 600px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-bottom: 1px dashed var(--text-muted);
+            padding-bottom: 0.2rem;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--text-muted);
+            border-color: transparent;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            #hero h1 { font-size: 2.5rem; }
+            section { padding: 4rem 0; }
+            #hero { padding: 5rem 0 4rem 0; }
+            .project-gallery { gap: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">AG</div>
+            <nav>
+                <a href="#about">Sobre mí</a>
+                <a href="#services">Servicios</a>
+                <a href="#projects">Proyectos</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+        </header>
+
+        <section id="hero">
+            <h1>Automatización + IA para negocios modernos</h1>
+            <p>Creo sistemas inteligentes, automatizaciones y experiencias digitales minimalistas para negocios y marcas.</p>
+            <a href="#projects" class="btn">Ver proyectos</a>
+        </section>
+
+        <section id="about">
+            <h2>Sobre mí</h2>
+            <p>Técnico audiovisual especializado en <strong>automatización, IA y sistemas digitales modernos</strong>.</p>
+            <p>Combino creatividad, diseño y lógica técnica para construir soluciones simples pero altamente útiles para negocios reales.</p>
+        </section>
+
+        <section id="services">
+            <h2>Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Automatización con IA</h3>
+                    <p>Integración de modelos de lenguaje avanzados para procesar y clasificar información de negocio en tiempo real.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Captación de Leads</h3>
+                    <p>Sistemas distribuidos que conectan canales web con flujos de trabajo automatizados para que no pierdas ningún cliente.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Landing Pages Premium</h3>
+                    <p>Diseño e interfaz web minimalista de alta velocidad y conversión, optimizada para marcas modernas.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Workflows a medida</h3>
+                    <p>Optimización y sincronización de herramientas en la nube (Make, CRMs, APIs) para eliminar tareas manuales repetitivas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Proyectos seleccionados</h2>
+            
+            <div class="project-meta">
+                <div class="project-title">Aeschi Studio — AI Lead System</div>
+                <div class="project-subtitle">Landing page premium conectada a automatización IA, CRM y clasificación inteligente de clientes potenciales.</div>
+                
+                <div class="tag-container">
+                    <span class="tag">HTML / CSS / JS</span>
+                    <span class="tag">Make</span>
+                    <span class="tag">Gemini AI</span>
+                    <span class="tag">Google Sheets</span>
+                    <span class="tag">Telegram API</span>
+                    <span class="tag">Webhooks</span>
+                </div>
+            </div>
+
+            <div class="project-gallery">
+                
+                <div class="gallery-item">
+                    <img src="images/01-landing-page.jpg" alt="Landing Page Premium - Aeschi Studio">
+                    <div class="image-caption">01. Interfaz principal de Aeschi Studio. Enfoque visual y limpio orientado a la conversión directa.</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/02-contact-form.jpg" alt="Formulario de contacto modular">
+                    <div class="image-caption">02. Formulario de contacto optimizado para la recolección limpia de especificaciones del proyecto.</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/03-make-automation.jpg" alt="Escenario central en Make">
+                    <div class="image-caption">03. Arquitectura del flujo en Make. Captura por webhook, persistencia de datos, análisis de IA y enrutamiento de notificaciones.</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/04-google-sheets-crm.jpg" alt="Base de datos y CRM en la nube">
+                    <div class="image-caption">04. Repositorio central de leads en Google Sheets que actúa como base de datos y CRM inmediato del estudio.</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/05-telegram-ai.jpg" alt="Análisis semántico e IA en Telegram">
+                    <div class="image-caption">05. Notificación push instantánea en Telegram. Gemini AI evalúa el volumen, presupuesto e intención del lead para calificarlo al instante.</div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/06-email-automation.jpg" alt="Email automático de respuesta">
+                    <div class="image-caption">06. Confirmación automatizada enviada al cliente al instante, garantizando una experiencia de usuario fluida y corporativa.</div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Construyamos algo juntos</h2>
+            <div class="contact-wrapper">
+                <p style="color: var(--text-muted); font-size: 1.15rem; font-weight: 300; margin-bottom: 2rem;">
+                    Si quieres automatizar tus flujos de trabajo, integrar IA en tu negocio o necesitas una landing page premium, hablemos.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:grifotasbass@gmail.com" class="contact-link">Email</a>
+                    <a href="https://t.me/albertogalvez86" class="contact-link" target="_blank">Telegram</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
