@@ -223,6 +223,22 @@
 }
 
 .project-image.large{
+  .stack{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+  margin-bottom:28px;
+}
+
+.stack span{
+  padding:8px 14px;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:999px;
+  font-size:12px;
+  color:var(--muted);
+  background:rgba(255,255,255,0.02);
+}
   max-width:100%;
 }
 
@@ -419,7 +435,14 @@
     <p class="project-desc">
       Sistema inteligente de captación de leads conectado a IA, CRM, Google Sheets, Telegram y automatización avanzada mediante Make.
     </p>
-
+    <div class="stack">
+  <span>Make</span>
+  <span>Gemini AI</span>
+  <span>Telegram</span>
+  <span>Google Sheets</span>
+  <span>Webhook</span>
+  <span>Gmail</span>
+</div>
     <div class="stack">
 
       <div class="tag">Make</div>
