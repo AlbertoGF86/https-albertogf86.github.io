@@ -158,10 +158,30 @@
     /* PROJECT */
 
     .project-image{
-      width:100%;
-      border:1px solid var(--line);
-      margin-top:40px;
-    }
+  width:100%;
+  border:1px solid var(--line);
+  margin-top:40px;
+  border-radius:12px;
+}
+
+.project-image.large{
+  max-width:100%;
+}
+
+.project-image.medium{
+  max-width:80%;
+}
+
+.project-image.small{
+  max-width:55%;
+}
+
+.project-image.center{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:40px;
+}
 
     .project-title{
       font-size:42px;
@@ -355,37 +375,37 @@
     <img
   src="images/01-landing-page.jpg"
   alt="Landing Page"
-  class="project-image"
+  class="project-image medium center"
 />
 
 <img
   src="images/02-contact-form.jpg"
   alt="Contact Form"
-  class="project-image"
+  class="project-image medium center"
 />
 
 <img
   src="images/03-make-automation.jpg"
   alt="Make Automation"
-  class="project-image"
+  class="project-image large"
 />
 
 <img
   src="images/04-google-sheets-crm.jpg"
   alt="Google Sheets CRM"
-  class="project-image"
+  class="project-image medium center"
 />
 
 <img
   src="images/05-telegram-ai.jpg"
   alt="Telegram AI"
-  class="project-image"
+  class="project-image small center"
 />
 
 <img
   src="images/06-email-automation.jpg"
   alt="Email Automation"
-  class="project-image"
+  class="project-image small center"
 />
 
   </section>
