@@ -3,342 +3,344 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Alberto Gálvez — Automatización + IA</title>
+  <meta name="description" content="Automatización, IA y sistemas digitales modernos para negocios." />
 
-  <meta
-    name="description"
-    content="Automatización, IA y sistemas digitales modernos para negocios."
-  />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    /* ─────────────────────────────────────────
+       RESET & VARIABLES
+    ───────────────────────────────────────── */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    :root{
-      --bg:#0a0a0a;
-      --card:#111111;
-      --text:#f5f5f5;
-      --muted:#8c8c8c;
-      --line:rgba(255,255,255,0.08);
-      --accent:#d6c3a5;
+    :root {
+      --bg:     #0a0a0a;
+      --card:   #111111;
+      --text:   #f5f5f5;
+      --muted:  #8c8c8c;
+      --line:   rgba(255, 255, 255, 0.08);
+      --accent: #d6c3a5;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      background:var(--bg);
-      color:var(--text);
-      font-family:'Inter',sans-serif;
-      -webkit-font-smoothing:antialiased;
-      overflow-x:hidden;
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-    .nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:24px 7vw;
-  z-index:1000;
-  backdrop-filter:blur(14px);
-  background:rgba(10,10,10,0.55);
-  border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-.nav-logo{
-  font-size:14px;
-  letter-spacing:-0.02em;
-  font-weight:600;
-}
-
-.nav-links{
-  display:flex;
-  gap:32px;
-}
-
-.nav-links a{
-  font-size:13px;
-  color:var(--muted);
-  transition:0.25s;
-}
-
-.nav-links a:hover{
-  color:var(--text);
-}
-.fade-up{
-  opacity:0;
-  transform:translateY(120px);
-  transition:
-    opacity 0.9s ease,
-    transform 0.9s ease;
-}
-
-.fade-up.visible{
-  opacity:1;
-  transform:none;
-}
-@media(max-width:768px){
-
-  .nav{
-    padding:20px 24px;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-}
-    section{
-      padding:120px 7vw;
-      border-bottom:1px solid var(--line);
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    /* HERO */
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
 
-    .hero{
-      padding-top:120px;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      position:relative;
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 7vw;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 10, 10, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .eyebrow{
-      color:var(--muted);
-      font-size:12px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      margin-bottom:24px;
+    .nav-logo {
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      font-weight: 600;
     }
 
-    h1{
-      font-size:clamp(54px,10vw,120px);
-      line-height:0.95;
-      letter-spacing:-0.06em;
-      max-width:1000px;
-      font-weight:500;
-      margin-bottom:32px;
+    .nav-links {
+      display: flex;
+      gap: 32px;
     }
 
-    .hero p{
-      max-width:620px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.7;
-      margin-bottom:42px;
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      transition: color 0.25s;
     }
 
-    .btn{
-      display:inline-flex;
-      width:fit-content;
-      padding:16px 28px;
-      border:1px solid var(--line);
-      color:var(--text);
-      font-size:13px;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      transition:0.25s;
+    .nav-links a:hover {
+      color: var(--text);
     }
 
-    .btn:hover{
-      border-color:var(--accent);
-      color:var(--accent);
+    /* ─────────────────────────────────────────
+       FADE-UP ANIMATION
+    ───────────────────────────────────────── */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(120px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
     }
 
-    /* ABOUT */
-
-    .section-label{
-      font-size:12px;
-      letter-spacing:0.18em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:32px;
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
     }
 
-    .about-text{
-      max-width:850px;
-      font-size:34px;
-      line-height:1.4;
-      letter-spacing:-0.04em;
-      font-weight:300;
+    /* ─────────────────────────────────────────
+       SECTIONS (BASE)
+    ───────────────────────────────────────── */
+
+    section {
+      padding: 120px 7vw;
+      border-bottom: 1px solid var(--line);
     }
 
-    .accent{
-      color:var(--accent);
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
     }
 
-    /* SERVICES */
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
 
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:32px;
-      margin-top:50px;
+    .hero {
+      padding-top: 120px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
     }
 
-    .service-card{
-      border:1px solid var(--line);
-      padding:36px;
-      background:var(--card);
+    .eyebrow {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
 
-    .service-card h3{
-      font-size:24px;
-      margin-bottom:14px;
-      font-weight:500;
+    h1 {
+      font-size: clamp(54px, 10vw, 120px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      max-width: 1000px;
+      font-weight: 500;
+      margin-bottom: 32px;
     }
 
-    .service-card p{
-      color:var(--muted);
-      line-height:1.7;
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 42px;
     }
 
-    /* PROJECT */
-
-    .project-image{
-  width:100%;
-  border:1px solid var(--line);
-  margin-top:40px;
-  border-radius:12px;
-}
-
-.project-image.large{
-  .stack{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:24px;
-  margin-bottom:28px;
-}
-
-.stack span{
-  padding:8px 14px;
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:999px;
-  font-size:12px;
-  color:var(--muted);
-  background:rgba(255,255,255,0.02);
-}
-  max-width:100%;
-}
-
-.project-image.medium{
-  max-width:80%;
-}
-
-.project-image.small{
-  max-width:55%;
-}
-
-.project-image.center{
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:40px;
-}
-
-    .project-title{
-      font-size:42px;
-      margin-bottom:20px;
-      letter-spacing:-0.04em;
+    .btn {
+      display: inline-flex;
+      width: fit-content;
+      padding: 16px 28px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: 0.25s;
     }
 
-    .project-desc{
-      max-width:720px;
-      color:var(--muted);
-      line-height:1.8;
-      margin-bottom:24px;
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
-    .stack{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:24px;
+    /* ─────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────── */
+
+    .about-text {
+      max-width: 850px;
+      font-size: 34px;
+      line-height: 1.4;
+      letter-spacing: -0.04em;
+      font-weight: 300;
     }
 
-    .tag{
-      border:1px solid var(--line);
-      padding:10px 16px;
-      font-size:12px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:0.08em;
+    .accent {
+      color: var(--accent);
     }
 
-    /* CONTACT */
+    /* ─────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────── */
 
-    .contact-text{
-      max-width:700px;
-      font-size:28px;
-      line-height:1.5;
-      letter-spacing:-0.03em;
-      margin-bottom:32px;
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-top: 50px;
     }
 
-    .email-link{
-      font-size:20px;
-      color:var(--accent);
+    .service-card {
+      border: 1px solid var(--line);
+      padding: 36px;
+      background: var(--card);
     }
 
-    /* FOOTER */
-
-    footer{
-      padding:40px 7vw;
-      display:flex;
-      justify-content:space-between;
-      color:var(--muted);
-      font-size:13px;
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 14px;
+      font-weight: 500;
     }
 
-    /* MOBILE */
+    .service-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
 
-    @media(max-width:768px){
+    /* ─────────────────────────────────────────
+       PROJECTS
+    ───────────────────────────────────────── */
 
-      section{
-        padding:90px 24px;
+    .project-title {
+      font-size: 42px;
+      margin-bottom: 20px;
+      letter-spacing: -0.04em;
+    }
+
+    .project-desc {
+      max-width: 720px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    /* Stack de tecnologías */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+      margin-bottom: 28px;
+    }
+
+    .stack span {
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Imágenes del proyecto */
+    .project-image {
+      width: 100%;
+      border: 1px solid var(--line);
+      margin-top: 40px;
+      border-radius: 12px;
+    }
+
+    .project-image.large  { max-width: 100%; }
+    .project-image.medium { max-width: 80%; }
+    .project-image.small  { max-width: 55%; }
+
+    .project-image.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ─────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────── */
+
+    .contact-text {
+      max-width: 700px;
+      font-size: 28px;
+      line-height: 1.5;
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+
+    .email-link {
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+
+    footer {
+      padding: 40px 7vw;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE — MOBILE
+    ───────────────────────────────────────── */
+
+    @media (max-width: 768px) {
+
+      .nav {
+        padding: 20px 24px;
       }
 
-      h1{
-        font-size:58px;
+      .nav-links {
+        display: none;
       }
 
-      .about-text{
-        font-size:26px;
+      section {
+        padding: 90px 24px;
       }
 
-      .services-grid{
-        grid-template-columns:1fr;
+      h1 {
+        font-size: 58px;
       }
 
-      .project-title{
-        font-size:32px;
+      .about-text {
+        font-size: 26px;
       }
 
-      footer{
-        flex-direction:column;
-        gap:12px;
-        padding:30px 24px;
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-title {
+        font-size: 32px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 12px;
+        padding: 30px 24px;
       }
 
     }
@@ -348,214 +350,125 @@
 
 <body>
 
-  <section class="hero fade-up">
-
-    <div class="eyebrow">
-      Automatización · IA · Sistemas Digitales
+  <!-- ─── NAV ──────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav-logo">Alberto Gálvez</div>
+    <div class="nav-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contact">Contacto</a>
     </div>
+  </nav>
 
-    <h1>
-      Creo sistemas inteligentes para negocios modernos.
-    </h1>
-
+  <!-- ─── HERO ─────────────────────────────── -->
+  <section class="hero fade-up">
+    <div class="eyebrow">Automatización · IA · Sistemas Digitales</div>
+    <h1>Creo sistemas inteligentes para negocios modernos.</h1>
     <p>
-      Automatización, inteligencia artificial y experiencias digitales minimalistas para marcas y negocios que quieren trabajar mejor y más rápido.
+      Automatización, inteligencia artificial y experiencias digitales minimalistas
+      para marcas y negocios que quieren trabajar mejor y más rápido.
     </p>
-
-    <a href="#proyectos" class="btn">
-      Ver proyectos
-    </a>
-
+    <a href="#proyectos" class="btn">Ver proyectos</a>
   </section>
 
-  <section class="fade-up">
-
-    <div class="section-label">
-      Sobre mí
-    </div>
-
+  <!-- ─── SOBRE MÍ ──────────────────────────── -->
+  <section id="sobre-mi" class="fade-up">
+    <div class="section-label">Sobre mí</div>
     <div class="about-text">
       Técnico audiovisual especializado en
       <span class="accent">automatización, IA y sistemas digitales modernos.</span>
       Combino creatividad, diseño y automatización para construir soluciones reales para negocios.
     </div>
-
   </section>
 
-  <section id="services" class="fade-up">
-
-    <div class="section-label">
-      Servicios
-    </div>
-
+  <!-- ─── SERVICIOS ─────────────────────────── -->
+  <section id="servicios" class="fade-up">
+    <div class="section-label">Servicios</div>
     <div class="services-grid">
 
       <div class="service-card">
         <h3>Automatización IA</h3>
-        <p>
-          Sistemas inteligentes para ahorrar tiempo, organizar procesos y automatizar tareas repetitivas.
-        </p>
+        <p>Sistemas inteligentes para ahorrar tiempo, organizar procesos y automatizar tareas repetitivas.</p>
       </div>
 
       <div class="service-card">
         <h3>Lead Systems</h3>
-        <p>
-          Captación automatizada de clientes con formularios, CRM, IA y notificaciones inteligentes.
-        </p>
+        <p>Captación automatizada de clientes con formularios, CRM, IA y notificaciones inteligentes.</p>
       </div>
 
       <div class="service-card">
         <h3>Landing Pages</h3>
-        <p>
-          Webs modernas, minimalistas y enfocadas en conversión y presencia digital premium.
-        </p>
+        <p>Webs modernas, minimalistas y enfocadas en conversión y presencia digital premium.</p>
       </div>
 
       <div class="service-card">
         <h3>Workflows</h3>
-        <p>
-          Integración entre herramientas, automatización empresarial y flujos personalizados.
-        </p>
+        <p>Integración entre herramientas, automatización empresarial y flujos personalizados.</p>
       </div>
 
     </div>
-
   </section>
 
+  <!-- ─── PROYECTO DESTACADO ────────────────── -->
   <section id="proyectos" class="fade-up">
+    <div class="section-label">Proyecto Destacado</div>
 
-    <div class="section-label">
-      Proyecto Destacado
-    </div>
-
-    <h2 class="project-title">
-      AI Lead Automation System — Aeschi Studio
-    </h2>
+    <h2 class="project-title">AI Lead Automation System — Aeschi Studio</h2>
 
     <p class="project-desc">
-      Sistema inteligente de captación de leads conectado a IA, CRM, Google Sheets, Telegram y automatización avanzada mediante Make.
+      Sistema inteligente de captación de leads conectado a IA, CRM, Google Sheets,
+      Telegram y automatización avanzada mediante Make.
     </p>
-    <div class="stack">
-  <span>Make</span>
-  <span>Gemini AI</span>
-  <span>Telegram</span>
-  <span>Google Sheets</span>
-  <span>Webhook</span>
-  <span>Gmail</span>
-</div>
-    <div class="stack">
 
-      <div class="tag">Make</div>
-      <div class="tag">Gemini AI</div>
-      <div class="tag">Telegram</div>
-      <div class="tag">Google Sheets</div>
-      <div class="tag">GitHub Pages</div>
-
+    <div class="stack">
+      <span>Make</span>
+      <span>Gemini AI</span>
+      <span>Telegram</span>
+      <span>Google Sheets</span>
+      <span>Webhook</span>
+      <span>Gmail</span>
+      <span>GitHub Pages</span>
     </div>
 
-    <img
-  src="images/01-landing-page.jpg"
-  alt="Landing Page"
-  class="project-image medium center"
-/>
-
-<img
-  src="images/02-contact-form.jpg"
-  alt="Contact Form"
-  class="project-image small center"
-/>
-
-<img
-  src="images/03-make-automation.jpg"
-  alt="Make Automation"
-  class="project-image large"
-/>
-
-<img
-  src="images/04-google-sheets-crm.jpg"
-  alt="Google Sheets CRM"
-  class="project-image medium center"
-/>
-
-<img
-  src="images/05-telegram-ai.jpg"
-  alt="Telegram AI"
-  class="project-image small center"
-/>
-
-<img
-  src="images/06-email-automation.jpg"
-  alt="Email Automation"
-  class="project-image small center"
-/>
-
+    <img src="images/01-landing-page.jpg"      alt="Landing Page"        class="project-image medium center" />
+    <img src="images/02-contact-form.jpg"       alt="Formulario Contacto" class="project-image small center"  />
+    <img src="images/03-make-automation.jpg"    alt="Make Automation"     class="project-image large"         />
+    <img src="images/04-google-sheets-crm.jpg" alt="Google Sheets CRM"   class="project-image medium center" />
+    <img src="images/05-telegram-ai.jpg"        alt="Telegram AI"         class="project-image small center"  />
+    <img src="images/06-email-automation.jpg"   alt="Email Automation"    class="project-image small center"  />
   </section>
 
-  <section id="contact">
-
-    <div class="section-label">
-      Contacto
-    </div>
-
+  <!-- ─── CONTACTO ─────────────────────────── -->
+  <section id="contact" class="fade-up">
+    <div class="section-label">Contacto</div>
     <div class="contact-text">
       Disponible para proyectos de automatización, IA y sistemas digitales para negocios modernos.
     </div>
-
     <a href="mailto:grifotasbass@gmail.com" class="email-link">
       grifotasbass@gmail.com
     </a>
-   
   </section>
 
+  <!-- ─── FOOTER ───────────────────────────── -->
   <footer>
-
-    <div>
-      Alberto Gálvez
-    </div>
-
-    <div>
-      Automatización + IA · 2026
-    </div>
-
+    <div>Alberto Gálvez</div>
+    <div>Automatización + IA · 2026</div>
   </footer>
 
+  <!-- ─── SCROLL ANIMATION ─────────────────── -->
   <script>
+    const fadeElements = document.querySelectorAll('.fade-up');
 
-const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
 
-const observer = new IntersectionObserver((entries)=>{
+    fadeElements.forEach((el) => observer.observe(el));
+  </script>
 
-  entries.forEach((entry)=>{
-
-    if(entry.isIntersecting){
-
-      entry.target.classList.add('visible');
-
-    }
-
-  });
-
-},{
-  threshold:0.12
-});
-
-fadeElements.forEach((el)=>{
-  observer.observe(el);
-});
-
-</script>
 </body>
-  <nav class="nav">
-
-  <div class="nav-logo">
-    Alberto Gálvez
-  </div>
-
-  <div class="nav-links">
-    <a href="#proyectos">Projects</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-</nav>
 </html>
