@@ -206,6 +206,135 @@
       .project-image.medium { max-width: 100%; }
       .project-image.small  { max-width: 100%; }
     }
+    /* ── ACORDEÓN SERVICIOS DE AUDIO ── */
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .accordion-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      margin-top: 32px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .accordion-toggle span {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.25s;
+    }
+    .accordion-toggle:hover span { color: var(--text); }
+    .accordion-arrow {
+      font-size: 18px;
+      color: var(--muted);
+      transition: transform 0.35s ease, color 0.25s;
+      line-height: 1;
+    }
+    .accordion-open .accordion-arrow { transform: rotate(180deg); color: var(--accent); }
+    .accordion-open .accordion-toggle span { color: var(--accent); }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .accordion-body-inner { padding: 40px 0 8px; }
+
+    /* Flujo */
+    .flow-list { display: flex; flex-direction: column; margin-bottom: 40px; }
+    .flow-step { display: grid; grid-template-columns: 28px 1fr; gap: 20px; position: relative; }
+    .flow-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 13px; top: 26px; bottom: -8px;
+      width: 1px;
+      background: var(--line);
+    }
+    .flow-num {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(214,195,165,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--accent);
+      background: var(--card);
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+    .flow-content { padding: 2px 0 28px; }
+    .flow-title { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .flow-desc { font-size: 13px; color: var(--muted); line-height: 1.75; }
+    .flow-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .flow-tool {
+      font-size: 11px; color: var(--accent);
+      background: rgba(214,195,165,0.06);
+      border: 1px solid rgba(214,195,165,0.15);
+      padding: 3px 9px; border-radius: 999px;
+    }
+
+    /* Tiers */
+    .tiers-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; border: 1px solid var(--line);
+      margin-bottom: 40px;
+    }
+    .tier-card { padding: 36px 28px; background: var(--card); position: relative; }
+    .tier-card.featured { background: #161616; }
+    .tier-badge {
+      position: absolute; top: 0; right: 24px;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--accent); color: #0a0a0a;
+      padding: 4px 10px; border-radius: 0 0 4px 4px;
+    }
+    .tier-name { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .tier-price { font-family: 'DM Serif Display', serif; font-size: 32px; letter-spacing: -0.02em; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .tier-note { font-size: 11px; color: var(--muted); margin-bottom: 20px; }
+    .tier-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .tier-list li { font-size: 13px; color: var(--muted); padding-left: 14px; position: relative; line-height: 1.5; }
+    .tier-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
+
+    /* Métricas */
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; border: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+    .metric-card { padding: 36px 28px; background: var(--card); text-align: center; }
+    .metric-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--accent); letter-spacing: -0.03em; line-height: 1; margin-bottom: 10px; }
+    .metric-label { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* Diferenciadores */
+    .diffs-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--line); margin-bottom: 40px; }
+    .diff-item { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 28px; background: var(--card); align-items: start; }
+    .diff-icon { font-size: 18px; padding-top: 2px; }
+    .diff-title { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .diff-text { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+    /* Ableton callout */
+    .ableton-callout {
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+    .ableton-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .ableton-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid var(--line); margin-top: 16px; }
+    .ableton-item { padding: 16px; background: var(--bg); }
+    .ableton-fn { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .ableton-val { font-size: 13px; color: var(--text); }
+
+    .accordion-section-title { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 20px; margin-top: 40px; }
+    .accordion-section-title:first-child { margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .tiers-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .ableton-grid { grid-template-columns: 1fr 1fr; }
+    }
+
   </style>
 </head>
 
@@ -224,9 +353,9 @@
 
   <!-- HERO -->
   <section class="hero fade-up">
-    <div class="eyebrow">Automatización · IA · Sistemas Digitales</div>
+    <div class="eyebrow">Sonido · Post-producción · Automatización · IA</div>
     <h1>Creo sistemas <em>inteligentes</em> para negocios modernos.</h1>
-    <p>Automatización, inteligencia artificial y experiencias digitales minimalistas para marcas y negocios que quieren trabajar mejor y más rápido.</p>
+    <p>Técnico Superior de Sonido especializado en automatización e inteligencia artificial. Construyo pipelines de audio, sistemas de producción y flujos digitales para estudios, podcasters y agencias que quieren escalar sin contratar.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary">Hablemos</a>
       <a href="#proyectos" class="btn">Ver proyectos</a>
@@ -238,9 +367,9 @@
     <div class="section-label">Sobre mí</div>
     <div class="about-grid">
       <div class="about-text">
-        Técnico audiovisual especializado en
-        <span class="accent">automatización, IA y sistemas digitales modernos.</span>
-        Combino creatividad, diseño y automatización para construir soluciones reales para negocios.
+        Técnico Superior de Sonido con experiencia en
+        <span class="accent">producción, post-producción y automatización de flujos de audio con IA.</span>
+        Construyo sistemas que conectan criterio técnico de sonido con automatización moderna para estudios, podcasters y agencias.
       </div>
       <img src="images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar" />
     </div>
@@ -273,6 +402,18 @@
         <h3>Workflows</h3>
         <p>Integración entre herramientas, automatización empresarial y flujos personalizados.</p>
         <div class="service-price">Desde 300 €</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">05 —</div>
+        <h3>AI Podcast Production</h3>
+        <p>Pipeline automatizado de producción de podcast: limpieza de audio, transcripción, show notes y publicación. Para podcasters en español sin equipo de producción.</p>
+        <div class="service-price">Desde 490 CHF</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06 —</div>
+        <h3>Audio Post-Production Automation</h3>
+        <p>Automatización de flujos de post-producción de audio para estudios, agencias y productoras. Limpieza, normalización EBU R128, QC automático y entrega técnica.</p>
+        <div class="service-price">Desde 890 CHF</div>
       </div>
     </div>
   </section>
@@ -345,6 +486,278 @@
     <img src="images/miniatura-mentario.png"   alt="Mentario — Miniatura Vídeo"    class="project-image large center" />
   </section>
 
+  <!-- PROYECTO 04 — AI PODCAST PRODUCTION SYSTEM -->
+  <section class="fade-up" id="proj-podcast">
+    <div class="section-label">Servicio Activo</div>
+    <div class="project-header">
+      <span class="project-number">04 —</span>
+      <h2 class="project-title">AI Podcast Production System</h2>
+    </div>
+    <p class="project-desc">
+      Sistema automatizado de extremo a extremo que transforma audio bruto en contenido editorial
+      listo para publicar. El podcaster graba, sube un archivo y en menos de 15 minutos recibe
+      audio procesado, transcripción, show notes, títulos alternativos, quotes para redes y
+      capítulos con timestamps. Para podcasters en español sin equipo de producción.
+    </p>
+    <div class="stack">
+      <span>Make</span><span>Auphonic API</span><span>Whisper API</span>
+      <span>Claude API</span><span>Ableton Live</span><span>Telegram</span><span>Google Drive</span>
+    </div>
+
+    <div class="accordion-toggle" onclick="toggleAccordion('acc-podcast')">
+      <span>Ver caso de estudio completo — flujo técnico, tiers y métricas</span>
+      <div class="accordion-arrow">↓</div>
+    </div>
+    <div class="accordion-body" id="acc-podcast">
+      <div class="accordion-body-inner">
+
+        <div class="accordion-section-title">Flujo del sistema</div>
+        <div class="flow-list">
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div class="flow-content">
+              <div class="flow-title">Trigger de entrada</div>
+              <div class="flow-desc">Make detecta el archivo nuevo en /ingest/ de Google Drive. Verifica naming convention y registra la entrada en Google Sheets.</div>
+              <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Google Drive</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div class="flow-content">
+              <div class="flow-title">Limpieza y normalización de audio</div>
+              <div class="flow-desc">Auphonic API aplica reducción de ruido, eliminación de hum y normalización de loudness a -16 LUFS (estándar streaming). Exporta WAV limpio.</div>
+              <div class="flow-tools"><span class="flow-tool">Auphonic API</span><span class="flow-tool">EBU R128 · -16 LUFS</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div class="flow-content">
+              <div class="flow-title">Transcripción con timestamps</div>
+              <div class="flow-desc">Whisper API transcribe el episodio en español con marcas de tiempo por párrafo. El .txt se guarda en Drive como input del siguiente paso.</div>
+              <div class="flow-tools"><span class="flow-tool">Whisper API</span><span class="flow-tool">Español neutro</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div class="flow-content">
+              <div class="flow-title">Generación de contenido con IA</div>
+              <div class="flow-desc">La transcripción se procesa con Claude API. Devuelve JSON con 3 títulos, descripción para plataformas, show notes, 5 quotes para redes y capítulos con tiempos.</div>
+              <div class="flow-tools"><span class="flow-tool">Claude API</span><span class="flow-tool">JSON output</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">05</div>
+            <div class="flow-content">
+              <div class="flow-title">Registro y notificación</div>
+              <div class="flow-desc">Google Sheets registra el episodio con todos los metadatos. Telegram Bot envía al cliente preview del título y link directo a la carpeta de entrega.</div>
+              <div class="flow-tools"><span class="flow-tool">Google Sheets</span><span class="flow-tool">Telegram Bot</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">06</div>
+            <div class="flow-content">
+              <div class="flow-title">Publicación automática (Tier 2/3)</div>
+              <div class="flow-desc">Tras la aprobación del cliente vía Telegram, Make sube el episodio a RSS.com o Buzzsprout con título, descripción y capítulos ya rellenados.</div>
+              <div class="flow-tools"><span class="flow-tool">RSS.com API</span><span class="flow-tool">Buzzsprout</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Ableton Live — Template de grabación incluido en el onboarding</div>
+        <div class="ableton-callout">
+          <div class="ableton-label">Live Set preconfigurado para el cliente</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;">El cliente recibe un Live Set listo para abrir y grabar. Garantiza que el audio entra al pipeline en condiciones óptimas sin necesidad de conocimientos técnicos de audio.</p>
+          <div class="ableton-grid">
+            <div class="ableton-item"><div class="ableton-fn">Pistas</div><div class="ableton-val">Host + Guest · Mono</div></div>
+            <div class="ableton-item"><div class="ableton-fn">Cadena</div><div class="ableton-val">EQ · Gate · Comp · EQ</div></div>
+            <div class="ableton-item"><div class="ableton-fn">Export</div><div class="ableton-val">WAV 24bit · 44.1kHz</div></div>
+            <div class="ableton-item"><div class="ableton-fn">Naming</div><div class="ableton-val">EP001_HOST.wav</div></div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="tiers-grid">
+          <div class="tier-card">
+            <div class="tier-name">Tier 1 — Listo para grabar</div>
+            <div class="tier-price">CHF 490–690</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Flujo Make completo</li>
+              <li>Auphonic configurado</li>
+              <li>Ableton Live Set</li>
+              <li>Telegram Bot activo</li>
+              <li>2 semanas soporte</li>
+            </ul>
+          </div>
+          <div class="tier-card featured">
+            <div class="tier-badge">Recomendado</div>
+            <div class="tier-name">Tier 2 — Piloto automático</div>
+            <div class="tier-price">CHF 190–290</div>
+            <div class="tier-note">por mes</div>
+            <ul class="tier-list">
+              <li>Todo el Tier 1</li>
+              <li>Mantenimiento mensual</li>
+              <li>Clips para redes sociales</li>
+              <li>Ajustes y mejoras</li>
+            </ul>
+          </div>
+          <div class="tier-card">
+            <div class="tier-name">Tier 3 — Estudio completo</div>
+            <div class="tier-price">desde CHF 1.200</div>
+            <div class="tier-note">proyecto a medida</div>
+            <ul class="tier-list">
+              <li>Integración email + redes</li>
+              <li>Flujo de aprobación</li>
+              <li>Onboarding videollamada</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-num">~15'</div><div class="metric-label">De audio bruto a contenido listo para revisar</div></div>
+          <div class="metric-card"><div class="metric-num">−5h</div><div class="metric-label">Por episodio respecto al flujo manual</div></div>
+          <div class="metric-card"><div class="metric-num">6+</div><div class="metric-label">Entregables generados automáticamente</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTO 05 — AUDIO POST-PRODUCTION AUTOMATION -->
+  <section class="fade-up" id="proj-postprod">
+    <div class="section-label">Servicio Activo</div>
+    <div class="project-header">
+      <span class="project-number">05 —</span>
+      <h2 class="project-title">Audio Post-Production Automation Consultant</h2>
+    </div>
+    <p class="project-desc">
+      Pipeline automatizado de limpieza, procesado y entrega para estudios de doblaje, agencias
+      audiovisuales y estudios de grabación. El sistema clasifica los archivos entrantes, separa
+      fuentes, normaliza según el estándar de cada destino y ejecuta control de calidad automático.
+      Criterio de Técnico Superior de Sonido integrado en cada parámetro del sistema.
+    </p>
+    <div class="stack">
+      <span>Make</span><span>Auphonic API</span><span>Lalal.ai API</span>
+      <span>FFmpeg</span><span>Whisper API</span><span>EBU R128</span><span>Telegram</span>
+    </div>
+
+    <div class="accordion-toggle" onclick="toggleAccordion('acc-postprod')">
+      <span>Ver caso de estudio completo — flujo técnico, tiers y métricas</span>
+      <div class="accordion-arrow">↓</div>
+    </div>
+    <div class="accordion-body" id="acc-postprod">
+      <div class="accordion-body-inner">
+
+        <div class="accordion-section-title">Pipeline de procesado</div>
+        <div class="flow-list">
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div class="flow-content">
+              <div class="flow-title">Ingest y clasificación</div>
+              <div class="flow-desc">Make detecta archivos nuevos, analiza nombre y metadata para clasificar el tipo de contenido y enrutar al pipeline correcto. Registra entrada en Sheets.</div>
+              <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Google Drive</span><span class="flow-tool">Google Sheets</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div class="flow-content">
+              <div class="flow-title">Separación de fuentes</div>
+              <div class="flow-desc">Lalal.ai API separa voz, ruido de fondo y música en stems independientes. Limpiar cada elemento por separado da resultados significativamente mejores que limpiar el mix completo.</div>
+              <div class="flow-tools"><span class="flow-tool">Lalal.ai API</span><span class="flow-tool">Stems separation</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div class="flow-content">
+              <div class="flow-title">Limpieza y normalización por destino</div>
+              <div class="flow-desc">Auphonic aplica noise reduction, hum removal y de-essing. Loudness ajustado según destino: Broadcast −23 LUFS · Streaming −16 LUFS · YouTube −14 LUFS · Doblaje −18 LUFS + True Peak −1 dBTP.</div>
+              <div class="flow-tools"><span class="flow-tool">Auphonic API</span><span class="flow-tool">EBU R128</span><span class="flow-tool">True Peak</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div class="flow-content">
+              <div class="flow-title">Control de calidad automatizado</div>
+              <div class="flow-desc">FFmpeg webhook verifica LUFS final, True Peak y duración vs original. Si el archivo no pasa el QC, alerta inmediata vía Telegram con el motivo específico.</div>
+              <div class="flow-tools"><span class="flow-tool">FFmpeg</span><span class="flow-tool">Telegram Alert</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">05</div>
+            <div class="flow-content">
+              <div class="flow-title">Subtítulos automáticos</div>
+              <div class="flow-desc">Whisper API genera .srt y .vtt para proyectos de doblaje y localización, y .txt con timestamps para edición.</div>
+              <div class="flow-tools"><span class="flow-tool">Whisper API</span><span class="flow-tool">.srt · .vtt · .txt</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">06</div>
+            <div class="flow-content">
+              <div class="flow-title">Empaquetado, informe y entrega</div>
+              <div class="flow-desc">Make organiza la carpeta de entrega. Genera informe técnico con LUFS, True Peak, herramientas y tiempo de procesado. Telegram notifica al técnico con el resumen completo.</div>
+              <div class="flow-tools"><span class="flow-tool">Google Drive</span><span class="flow-tool">Informe QC</span><span class="flow-tool">Telegram Bot</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Por qué un Técnico Superior de Sonido</div>
+        <div class="diffs-list">
+          <div class="diff-item"><div class="diff-icon">🎚️</div><div><div class="diff-title">Parámetros de loudness con criterio profesional</div><div class="diff-text">EBU R128, −16 LUFS y −14 LUFS no son lo mismo. Cada destino tiene su estándar. El sistema aplica el correcto automáticamente para broadcast, streaming, doblaje o YouTube.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">🔬</div><div><div class="diff-title">Separación de fuentes antes de limpiar</div><div class="diff-text">Limpiar el mix completo da peor resultado que limpiar la voz sola y recombinar. Este orden de operaciones solo lo define alguien que entiende el audio a nivel técnico.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">✅</div><div><div class="diff-title">QC con métricas reales</div><div class="diff-text">El sistema verifica True Peak, LUFS integrado y duración. Son las mismas métricas que piden broadcasters y distribuidoras en sus especificaciones técnicas de entrega.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">🤝</div><div><div class="diff-title">Conversación técnica de igual a igual</div><div class="diff-text">Phase coherence, artifacts del de-noiser, limitaciones del compresor en ciertos materiales. Con el técnico del estudio se habla de tú a tú. Eso genera confianza y reduce fricción.</div></div></div>
+        </div>
+
+        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="tiers-grid">
+          <div class="tier-card">
+            <div class="tier-name">Tier 1 — Pipeline básico</div>
+            <div class="tier-price">CHF 890–1.200</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Flujo para 1 tipo de contenido</li>
+              <li>Auphonic configurado</li>
+              <li>QC automático + alertas</li>
+              <li>3 semanas soporte</li>
+            </ul>
+          </div>
+          <div class="tier-card featured">
+            <div class="tier-badge">Más completo</div>
+            <div class="tier-name">Tier 2 — Sistema completo</div>
+            <div class="tier-price">CHF 1.800–2.500</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Tres pipelines completos</li>
+              <li>Lalal.ai separación fuentes</li>
+              <li>Subtítulos automáticos</li>
+              <li>Onboarding videollamada</li>
+            </ul>
+          </div>
+          <div class="tier-card">
+            <div class="tier-name">Tier 3 — Mantenimiento</div>
+            <div class="tier-price">CHF 290–490</div>
+            <div class="tier-note">por mes</div>
+            <ul class="tier-list">
+              <li>Monitoreo del sistema</li>
+              <li>Ajuste de parámetros</li>
+              <li>Nuevos pipelines</li>
+              <li>Soporte Telegram</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-num">−80%</div><div class="metric-label">Tiempo de procesado manual por proyecto</div></div>
+          <div class="metric-card"><div class="metric-num">100%</div><div class="metric-label">Consistencia técnica entre archivos del proyecto</div></div>
+          <div class="metric-card"><div class="metric-num">0</div><div class="metric-label">Entregas con error de loudness o True Peak</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESO -->
   <section id="proceso" class="fade-up">
     <div class="section-label">Cómo trabajo</div>
@@ -394,6 +807,8 @@
               <option value="" disabled selected>Selecciona un servicio</option>
               <option value="automatizacion">Automatización IA</option>
               <option value="leads">Lead Systems</option>
+              <option value="podcast">AI Podcast Production System</option>
+              <option value="postprod">Audio Post-Production Automation</option>
               <option value="landing">Landing Page</option>
               <option value="workflow">Workflows</option>
               <option value="otro">Otro / No sé aún</option>
@@ -458,6 +873,22 @@
         btn.textContent = 'Enviar mensaje';
         btn.disabled = false;
       });
+    }
+  </script>
+
+  <script>
+    function toggleAccordion(id) {
+      const body = document.getElementById(id);
+      const section = body.closest('section');
+      const arrow = section.querySelector('.accordion-arrow');
+      const isOpen = section.classList.contains('accordion-open');
+      if (isOpen) {
+        body.style.maxHeight = '0';
+        section.classList.remove('accordion-open');
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        section.classList.add('accordion-open');
+      }
     }
   </script>
 
