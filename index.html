@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alberto Gálvez — Automatización + IA</title>
-  <meta name="description" content="Sistemas de automatización e inteligencia artificial para negocios. Email triage, lead automation, audio workflows." />
+  <title>Alberto Gálvez — Sound Technician • Automation Specialist</title>
+  <meta name="description" content="Designing efficient audio workflows, technical systems and automation solutions for modern production environments." />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='6' y='24' font-size='20' fill='%23d6c3a5'>AG</text></svg>" />
 
@@ -201,6 +201,9 @@
     .contact-sub { color: var(--muted); font-size: 15px; line-height: 1.9; margin-bottom: 40px; max-width: 560px; }
     .email-link { font-size: 20px; color: var(--accent); transition: opacity 0.2s; }
     .email-link:hover { opacity: 0.7; }
+    .contact-links {display: flex; gap: 20px; margin-top: 20px; justify-content: flex-start; align-items: left; }
+    .contact-links a {color: #A1A1AA; font-size: 15px;transition: color 0.2s ease; text-align: left; }
+    .contact-links a:hover {color: #3B82F6; }
 
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .form-group { display: flex; flex-direction: column; gap: 8px; }
@@ -445,9 +448,11 @@
         Técnico Superior de Sonido con experiencia en
         <span class="accent">producción, post-producción y automatización de flujos con IA.</span>
         Construyo sistemas que conectan criterio técnico con automatización moderna para estudios, podcasters y agencias.
+        <span class="accent">Audio Production: Recording • Live Sound • Support.</span>
+        Automation: Workflows • AI • Integration.
+        <span class="accent">Consulting: Systems • Optimization • Solutions.</span>
       </div>
       <img src="images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar" />
-    </div>
   </section>
 
   <!-- RESULTADOS -->
@@ -1013,8 +1018,8 @@
       <div class="contact-inner">
         <div class="contact-text">¿Tienes un proyecto en mente?<br/>Hablemos.</div>
         <p class="contact-sub">Disponible para proyectos de automatización, IA y sistemas digitales. Respondo en menos de 24h.</p>
-        <a href="mailto:grifotasbass@gmail.com" class="email-link">grifotasbass@gmail.com</a>
-      </div>
+        <a href="mailto:contact@albertogalvez.ch" class="email-link">contact@albertogalvez.ch</a>
+        </div>
       <div>
         <form class="contact-form" action="https://formspree.io/f/mbdbkrzr" method="POST" id="contactForm">
           <div class="form-group">
@@ -1054,7 +1059,20 @@
   <!-- FOOTER -->
   <footer>
     <div>Alberto Gálvez</div>
-    <div>Automatización + IA · 2026</div>
+    <div>Sound Technician • Automation Specialist • 2026</div>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/alberto-gálvez-43b79a411/"
+         target="_blank"
+         rel="noopener noreferrer">
+         LinkedIn
+      </a>
+    
+      <a href="https://github.com/AlbertoGF86"
+         target="_blank"
+         rel="noopener noreferrer">
+         GitHub
+      </a>
+    </div>
   </footer>
 
   <script>
@@ -1087,11 +1105,11 @@
             status.classList.add('visible');
             form.reset();
           } else {
-            status.textContent = 'Algo salió mal. Escríbeme directamente a grifotasbass@gmail.com';
+            status.textContent = 'Algo salió mal. Escríbeme directamente a contact@albertogalvez.ch';
             status.classList.add('visible');
           }
         } catch {
-          status.textContent = 'Error de red. Escríbeme directamente a grifotasbass@gmail.com';
+          status.textContent = 'Error de red. Escríbeme directamente a contact@albertogalvez.ch';
           status.classList.add('visible');
         }
         btn.textContent = 'Enviar mensaje';
