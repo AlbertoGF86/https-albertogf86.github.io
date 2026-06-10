@@ -49,6 +49,20 @@
       background: rgba(10, 10, 10, 0.55);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
+    .lang-switcher {
+      display: flex;
+      gap: 14px;
+      margin-left: 24px;
+    }
+    .lang-switcher a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-switcher a:hover { color: var(--accent); }
+    
 
     .nav-logo { font-size: 14px; letter-spacing: -0.02em; font-weight: 600; }
     .nav-links { display: flex; gap: 32px; }
@@ -498,6 +512,11 @@
     <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
     </button>
+    <div class="lang-switcher">
+      <a href="/">ES</a>
+      <a href="/en/">EN</a>
+      <a href="/de/">DE</a>
+    </div>
   </nav>
 
   <div class="nav-mobile" id="navMobile">
