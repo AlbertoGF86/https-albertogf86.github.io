@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alberto Gálvez — Sound Technician • Automation Specialist</title>
-  <meta name="description" content="Designing efficient audio workflows, technical systems and automation solutions for modern production environments." />
+  <title>Alberto Gálvez — Automatización + IA · Suiza</title>
+  <meta name="description" content="Sistemas de automatización, IA y soluciones digitales para negocios modernos. Basado en Suiza." />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='6' y='24' font-size='20' fill='%23d6c3a5'>AG</text></svg>" />
 
@@ -387,10 +387,78 @@
     .sheet-cell.high { color: #e8a87c; }
     .sheet-cell.category { color: var(--text); }
 
-    /* RESPONSIVE */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--muted);
+      transition: all 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--accent); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--accent); }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 65px; left: 0;
+      width: 100%;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 15px; color: var(--muted); transition: color 0.2s; }
+    .nav-mobile a:hover { color: var(--text); }
+
+    /* CASE STUDY BLOCKS */
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      margin: 28px 0 0;
+    }
+    .case-study-block {
+      padding: 32px 28px;
+      background: var(--card);
+    }
+    .case-study-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .case-study-label.challenge { color: #c0855a; }
+    .case-study-label.solution  { color: var(--muted); }
+    .case-study-label.result    { color: #7aab7a; }
+    .case-study-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 768px) {
+      .case-study-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       .nav { padding: 20px 24px; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       section { padding: 90px 24px; }
       h1 { font-size: 56px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -427,11 +495,21 @@
       <a href="#proceso">Proceso</a>
       <a href="#contact">Contacto</a>
     </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#proyectos" onclick="closeMobileNav()">Proyectos</a>
+    <a href="#servicios" onclick="closeMobileNav()">Servicios</a>
+    <a href="#proceso" onclick="closeMobileNav()">Proceso</a>
+    <a href="#contact" onclick="closeMobileNav()">Contacto</a>
+  </div>
 
   <!-- HERO -->
   <section class="hero fade-up">
-    <div class="eyebrow">Sonido · Post-producción · Automatización · IA</div>
+    <div class="eyebrow">Automatización · IA · Suiza · Freelance</div>
     <h1>Sistemas IA que ahorran <em>5+ horas</em> por semana.</h1>
     <p>Técnico Superior de Sonido especializado en automatización e inteligencia artificial. Construyo sistemas de email triage, lead automation y pipelines de audio para negocios que quieren escalar sin contratar.</p>
     <div class="hero-cta">
@@ -446,13 +524,13 @@
     <div class="about-grid">
       <div class="about-text">
         Técnico Superior de Sonido con experiencia en
-        <span class="accent">producción, post-producción y automatización de flujos con IA.</span>
-        Construyo sistemas que conectan criterio técnico con automatización moderna para estudios, podcasters y agencias.
-        <span class="accent">Audio Production: Recording • Live Sound • Support.</span>
-        Automation: Workflows • AI • Integration.
-        <span class="accent">Consulting: Systems • Optimization • Solutions.</span>
+        <span class="accent">producción, post-producción y automatización de flujos de audio con IA.</span>
+        Construyo sistemas que conectan criterio técnico de sonido con automatización moderna para estudios, podcasters y agencias.
       </div>
-      <img src="images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar" />
+      <img src="images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar"
+           onerror="this.style.background='#1a1a1a';this.style.border='1px solid rgba(214,195,165,0.15)';this.removeAttribute('src')" />
+      </div>
+    </div>
   </section>
 
   <!-- RESULTADOS -->
@@ -525,7 +603,7 @@
   <!-- PROYECTO 01 — AI EMAIL ASSISTANT               -->
   <!-- ══════════════════════════════════════════════ -->
   <section id="proyectos" class="fade-up">
-    <div class="section-label">Case Study</div>
+    <div class="section-label">Caso de Estudio</div>
     <div class="project-header">
       <span class="project-number">01 —</span>
       <h2 class="project-title">AI Email Assistant</h2>
@@ -536,6 +614,21 @@
       profesional lista para enviar. El usuario revisa un dashboard estructurado cada mañana
       en lugar de leer emails en bruto.
     </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Desafío</div>
+        <div class="case-study-text">La revisión manual del inbox consumía 45+ minutos cada mañana — sin sistema de priorización, triage ni borradores automáticos.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solución</div>
+        <div class="case-study-text">Pipeline de clasificación automatizado con Make + Claude AI: cada email entrante es categorizado, resumido y emparejado con un borrador de respuesta listo para enviar.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Resultado</div>
+        <div class="case-study-text">45 minutos ahorrados al día. 100% de emails clasificados sin intervención humana. Cero leads de alta prioridad perdidos desde la implementación.</div>
+      </div>
+    </div>
     <div class="stack">
       <span>Make</span><span>Gmail API</span><span>Claude AI</span>
       <span>Google Sheets</span><span>Webhook</span>
@@ -672,6 +765,21 @@
       Sistema inteligente de captación de leads conectado a IA, CRM, Google Sheets,
       Telegram y automatización avanzada mediante Make.
     </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Desafío</div>
+        <div class="case-study-text">Los leads del formulario web se gestionaban manualmente — sin scoring, sin seguimiento inmediato, sin registro en CRM. Contactos de alto valor se perdían.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solución</div>
+        <div class="case-study-text">Automatización de leads de extremo a extremo: el envío del formulario activa el scoring con Gemini AI, alerta instantánea por Telegram y registro automático en Google Sheets.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Resultado</div>
+        <div class="case-study-text">Cada lead puntuado, registrado y notificado en menos de 60 segundos. Tiempo de respuesta reducido de horas a minutos. Historial completo disponible desde el primer día.</div>
+      </div>
+    </div>
     <div class="stack">
       <span>Make</span><span>Gemini AI</span><span>Telegram</span>
       <span>Google Sheets</span><span>Webhook</span><span>Gmail</span><span>GitHub Pages</span>
@@ -698,6 +806,21 @@
       formulario inteligente, análisis de leads con Gemini AI, alertas instantáneas por Telegram
       y CRM automático en Google Sheets. Desplegado en producción y entregado a cliente real.
     </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Desafío</div>
+        <div class="case-study-text">A high-end tattoo studio was managing bookings via DMs and manual emails — no way to filter serious clients from casual inquiries or track pipeline status.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solución</div>
+        <div class="case-study-text">Landing de reservas premium con formulario inteligente. Cada envío es analizado por Gemini AI para puntuar la calidad del lead, activar alertas por Telegram y construir un CRM en tiempo real en Sheets.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Resultado</div>
+        <div class="case-study-text">Sistema de reservas completo desplegado y entregado a un cliente real. El propietario recibe resúmenes de leads puntuados por IA con cero entrada manual de datos.</div>
+      </div>
+    </div>
     <div class="stack">
       <span>Make</span><span>Gemini AI</span><span>Telegram</span>
       <span>Google Sheets</span><span>Webhook</span><span>Vercel</span><span>HTML / CSS / JS</span>
@@ -726,6 +849,21 @@
       audio procesado, transcripción, show notes, títulos alternativos, quotes para redes y
       capítulos con timestamps. Para podcasters en español sin equipo de producción.
     </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Desafío</div>
+        <div class="case-study-text">Los podcasters invertían 5+ horas por episodio en limpieza de audio, transcripción, show notes y contenido para redes — un cuello de botella que limitaba la frecuencia de publicación.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solución</div>
+        <div class="case-study-text">Pipeline completamente automatizado: sube el audio bruto → Auphonic limpia y normaliza → Whisper transcribe → Claude genera todo el contenido editorial → Telegram entrega el paquete completo.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Resultado</div>
+        <div class="case-study-text">5 horas por episodio reducidas a menos de 15 minutos. 6+ entregables generados automáticamente: audio procesado, transcripción, show notes, títulos, citas y marcadores de capítulo.</div>
+      </div>
+    </div>
     <div class="stack">
       <span>Make</span><span>Auphonic API</span><span>Whisper API</span>
       <span>Claude API</span><span>Ableton Live</span><span>Telegram</span><span>Google Drive</span>
@@ -866,6 +1004,21 @@
       fuentes, normaliza según el estándar de cada destino y ejecuta control de calidad automático.
       Criterio de Técnico Superior de Sonido integrado en cada parámetro del sistema.
     </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Desafío</div>
+        <div class="case-study-text">Los estudios de post-producción procesaban archivos manualmente — sin estándares de loudness consistentes, sin QC automatizado, y el 80% del tiempo dedicado a tareas técnicas repetitivas.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solución</div>
+        <div class="case-study-text">Pipeline de procesado automatizado: ingesta → separación de fuentes con Lalal.ai → normalización Auphonic según estándar de destino (Broadcast / Streaming / Doblaje) → QC con FFmpeg → informe de entrega por Telegram.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Resultado</div>
+        <div class="case-study-text">Reducción del 80% en tiempo de procesado manual. 100% de consistencia técnica entre archivos. Cero errores de loudness o True Peak en entrega desde la implementación.</div>
+      </div>
+    </div>
     <div class="stack">
       <span>Make</span><span>Auphonic API</span><span>Lalal.ai API</span>
       <span>FFmpeg</span><span>Whisper API</span><span>EBU R128</span><span>Telegram</span>
@@ -1048,7 +1201,7 @@
             <textarea id="message" name="message" placeholder="Cuéntame brevemente tu proyecto o necesidad..." required></textarea>
           </div>
           <div class="form-submit">
-            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            <button type="submit" class="btn btn-primary">Iniciar proyecto →</button>
           </div>
           <div class="form-status" id="formStatus"></div>
         </form>
@@ -1059,19 +1212,17 @@
   <!-- FOOTER -->
   <footer>
     <div>Alberto Gálvez</div>
-    <div>Sound Technician • Automation Specialist • 2026</div>
+    <div>Técnico de Sonido • Especialista en Automatización • 2026</div>
     <div class="contact-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contact">Contacto</a>
       <a href="https://www.linkedin.com/in/alberto-gálvez-43b79a411/"
          target="_blank"
-         rel="noopener noreferrer">
-         LinkedIn
-      </a>
-    
+         rel="noopener noreferrer">LinkedIn</a>
       <a href="https://github.com/AlbertoGF86"
          target="_blank"
-         rel="noopener noreferrer">
-         GitHub
-      </a>
+         rel="noopener noreferrer">GitHub</a>
     </div>
   </footer>
 
@@ -1112,7 +1263,7 @@
           status.textContent = 'Error de red. Escríbeme directamente a contact@albertogalvez.ch';
           status.classList.add('visible');
         }
-        btn.textContent = 'Enviar mensaje';
+        btn.textContent = 'Iniciar proyecto →';
         btn.disabled = false;
       });
     }
@@ -1131,6 +1282,18 @@
         body.style.maxHeight = body.scrollHeight + 'px';
         section.classList.add('accordion-open');
       }
+    }
+  </script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMobile = document.getElementById('navMobile');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMobile.classList.toggle('open');
+    });
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      navMobile.classList.remove('open');
     }
   </script>
 
