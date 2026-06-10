@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alberto Gálvez — Automation + AI · Switzerland</title>
+  <meta name="description" content="AI automation systems, intelligent workflows and digital solutions for modern businesses. Based in Switzerland." />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='6' y='24' font-size='20' fill='%23d6c3a5'>AG</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:     #0a0a0a;
+      --card:   #111111;
+      --text:   #f5f5f5;
+      --muted:  #8c8c8c;
+      --line:   rgba(255, 255, 255, 0.08);
+      --accent: #d6c3a5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 7vw;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(10, 10, 10, 0.55);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 14px;
+      margin-left: 24px;
+    }
+    .lang-switcher a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-switcher a:hover { color: var(--accent); }
+
+    .nav-logo { font-size: 14px; letter-spacing: -0.02em; font-weight: 600; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--muted); transition: color 0.25s; }
+    .nav-links a:hover { color: var(--text); }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(80px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    section {
+      padding: 140px 7vw;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 140px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .eyebrow { color: var(--muted); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 28px; }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(64px, 9vw, 120px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 1000px;
+      font-weight: 400;
+      margin-bottom: 36px;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+
+    .hero p { max-width: 580px; color: var(--muted); font-size: 17px; line-height: 1.9; margin-bottom: 48px; }
+
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 16px 28px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      transition: 0.25s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-primary { background: var(--accent); color: #0a0a0a; border-color: var(--accent); font-weight: 500; }
+    .btn-primary:hover { background: transparent; color: var(--accent); }
+
+    /* SOBRE MÍ */
+    .about-grid { display: grid; grid-template-columns: 1fr 340px; gap: 80px; align-items: center; }
+    .about-text { font-size: 34px; line-height: 1.45; letter-spacing: -0.04em; font-weight: 300; }
+    .accent { color: var(--accent); }
+    .about-avatar {
+      width: 100%; height: auto;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--card);
+      display: block;
+      object-fit: contain;
+    }
+
+    /* RESULTADOS */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      margin-top: 50px;
+    }
+    .result-card {
+      padding: 48px 36px;
+      background: var(--card);
+      transition: background 0.3s;
+    }
+    .result-card:hover { background: #161616; }
+    .result-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .result-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* SERVICIOS */
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 50px; border: 1px solid var(--line); }
+    .service-card { padding: 44px 36px; background: var(--card); transition: background 0.3s; }
+    .service-card:hover { background: #161616; }
+    .service-number { font-size: 11px; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 20px; }
+    .service-card h3 { font-size: 22px; margin-bottom: 14px; font-weight: 500; letter-spacing: -0.02em; }
+    .service-card p { color: var(--muted); line-height: 1.75; font-size: 14px; }
+    .service-price { margin-top: 24px; font-size: 12px; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* PROYECTOS */
+    .project-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: 20px; }
+    .project-number { font-size: 13px; color: var(--muted); letter-spacing: 0.10em; flex-shrink: 0; }
+    .project-title { font-family: 'DM Serif Display', serif; font-size: 42px; letter-spacing: -0.02em; font-weight: 400; }
+    .project-desc { max-width: 720px; color: var(--muted); line-height: 1.9; margin-top: 24px; margin-bottom: 32px; font-size: 15px; }
+
+    .stack { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+    .stack span { padding: 8px 14px; border: 1px solid rgba(255,255,255,0.08); border-radius: 999px; font-size: 12px; color: var(--muted); background: rgba(255,255,255,0.02); }
+
+    .project-image { width: 100%; border: 1px solid var(--line); margin-top: 40px; border-radius: 8px; }
+    .project-image.large  { max-width: 100%; }
+    .project-image.medium { max-width: 75%; }
+    .project-image.small  { max-width: 45%; }
+    .project-image.center { display: block; margin-left: auto; margin-right: auto; }
+
+    /* PROCESO */
+    .proceso-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 50px; border: 1px solid var(--line); }
+    .proceso-step { padding: 44px 36px; background: var(--card); position: relative; }
+    .proceso-step-number { font-family: 'DM Serif Display', serif; font-size: 56px; color: rgba(214,195,165,0.12); line-height: 1; margin-bottom: 24px; letter-spacing: -0.04em; }
+    .proceso-step h3 { font-size: 18px; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .proceso-step p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .proceso-step-arrow { position: absolute; top: 44px; right: -12px; width: 24px; height: 24px; background: var(--bg); border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--muted); z-index: 1; }
+    .proceso-step:last-child .proceso-step-arrow { display: none; }
+
+    /* CONTACTO */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 24px; }
+    .contact-inner { max-width: 760px; }
+    .contact-text { font-size: 28px; line-height: 1.55; letter-spacing: -0.03em; margin-bottom: 12px; margin-top: 24px; font-weight: 300; }
+    .contact-sub { color: var(--muted); font-size: 15px; line-height: 1.9; margin-bottom: 40px; max-width: 560px; }
+    .email-link { font-size: 20px; color: var(--accent); transition: opacity 0.2s; }
+    .email-link:hover { opacity: 0.7; }
+    .contact-links {display: flex; gap: 20px; margin-top: 20px; justify-content: flex-start; align-items: left; }
+    .contact-links a {color: #A1A1AA; font-size: 15px;transition: color 0.2s ease; text-align: left; }
+    .contact-links a:hover {color: #3B82F6; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .form-group input,
+    .form-group textarea,
+    .form-group select { background: var(--card); border: 1px solid var(--line); color: var(--text); font-family: 'Inter', sans-serif; font-size: 14px; padding: 14px 16px; outline: none; transition: border-color 0.25s; border-radius: 2px; resize: none; appearance: none; -webkit-appearance: none; }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--accent); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(140,140,140,0.5); }
+    .form-group textarea { min-height: 120px; }
+    .form-submit { margin-top: 8px; }
+    .form-status { font-size: 13px; color: var(--accent); margin-top: 12px; min-height: 20px; display: none; }
+    .form-status.visible { display: block; }
+
+    footer { padding: 40px 7vw; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 13px; }
+    footer a { color: var(--muted); transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    /* ACORDEÓN */
+    .accordion-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      margin-top: 32px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .accordion-toggle span {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.25s;
+    }
+    .accordion-toggle:hover span { color: var(--text); }
+    .accordion-arrow {
+      font-size: 18px;
+      color: var(--muted);
+      transition: transform 0.35s ease, color 0.25s;
+      line-height: 1;
+    }
+    .accordion-open .accordion-arrow { transform: rotate(180deg); color: var(--accent); }
+    .accordion-open .accordion-toggle span { color: var(--accent); }
+
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+    .accordion-body-inner { padding: 40px 0 8px; }
+
+    /* FLUJO */
+    .flow-list { display: flex; flex-direction: column; margin-bottom: 40px; }
+    .flow-step { display: grid; grid-template-columns: 28px 1fr; gap: 20px; position: relative; }
+    .flow-step:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 13px; top: 26px; bottom: -8px;
+      width: 1px;
+      background: var(--line);
+    }
+    .flow-num {
+      width: 28px; height: 28px;
+      border: 1px solid rgba(214,195,165,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: var(--accent);
+      background: var(--card);
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+    .flow-content { padding: 2px 0 28px; }
+    .flow-title { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .flow-desc { font-size: 13px; color: var(--muted); line-height: 1.75; }
+    .flow-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .flow-tool {
+      font-size: 11px; color: var(--accent);
+      background: rgba(214,195,165,0.06);
+      border: 1px solid rgba(214,195,165,0.15);
+      padding: 3px 9px; border-radius: 999px;
+    }
+
+    /* TIERS */
+    .tiers-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; border: 1px solid var(--line);
+      margin-bottom: 40px;
+    }
+    .tier-card { padding: 36px 28px; background: var(--card); position: relative; }
+    .tier-card.featured { background: #161616; }
+    .tier-badge {
+      position: absolute; top: 0; right: 24px;
+      font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--accent); color: #0a0a0a;
+      padding: 4px 10px; border-radius: 0 0 4px 4px;
+    }
+    .tier-name { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .tier-price { font-family: 'DM Serif Display', serif; font-size: 32px; letter-spacing: -0.02em; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .tier-note { font-size: 11px; color: var(--muted); margin-bottom: 20px; }
+    .tier-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .tier-list li { font-size: 13px; color: var(--muted); padding-left: 14px; position: relative; line-height: 1.5; }
+    .tier-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
+
+    /* MÉTRICAS */
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; border: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+    .metric-card { padding: 36px 28px; background: var(--card); text-align: center; }
+    .metric-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--accent); letter-spacing: -0.03em; line-height: 1; margin-bottom: 10px; }
+    .metric-label { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* DIFERENCIADORES */
+    .diffs-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--line); margin-bottom: 40px; }
+    .diff-item { display: grid; grid-template-columns: 40px 1fr; gap: 20px; padding: 24px 28px; background: var(--card); align-items: start; }
+    .diff-icon { font-size: 18px; padding-top: 2px; }
+    .diff-title { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .diff-text { font-size: 13px; color: var(--muted); line-height: 1.75; }
+
+    /* ABLETON */
+    .ableton-callout {
+      border: 1px solid var(--line);
+      background: var(--card);
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+    .ableton-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .ableton-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; border: 1px solid var(--line); margin-top: 16px; }
+    .ableton-item { padding: 16px; background: var(--bg); }
+    .ableton-fn { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .ableton-val { font-size: 13px; color: var(--text); }
+
+    .accordion-section-title { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 20px; margin-top: 40px; }
+    .accordion-section-title:first-child { margin-top: 0; }
+
+    /* SHEET PREVIEW */
+    .sheet-preview {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .sheet-header {
+      display: grid;
+      grid-template-columns: 140px 200px 80px 80px 1fr;
+      gap: 1px;
+      background: var(--line);
+      border-bottom: 1px solid rgba(214,195,165,0.15);
+    }
+    .sheet-header-cell {
+      background: rgba(214,195,165,0.06);
+      padding: 10px 14px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sheet-row {
+      display: grid;
+      grid-template-columns: 140px 200px 80px 80px 1fr;
+      gap: 1px;
+      background: var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .sheet-row:last-child { border-bottom: none; }
+    .sheet-cell {
+      background: var(--card);
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .sheet-cell.high { color: #e8a87c; }
+    .sheet-cell.category { color: var(--text); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--muted);
+      transition: all 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--accent); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--accent); }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 65px; left: 0;
+      width: 100%;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 24px 28px;
+      z-index: 999;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-size: 15px; color: var(--muted); transition: color 0.2s; }
+    .nav-mobile a:hover { color: var(--text); }
+
+    /* CASE STUDY BLOCKS */
+    .case-study-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      border: 1px solid var(--line);
+      margin: 28px 0 0;
+    }
+    .case-study-block {
+      padding: 32px 28px;
+      background: var(--card);
+    }
+    .case-study-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .case-study-label.challenge { color: #c0855a; }
+    .case-study-label.solution  { color: var(--muted); }
+    .case-study-label.result    { color: #7aab7a; }
+    .case-study-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 768px) {
+      .case-study-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      section { padding: 90px 24px; }
+      h1 { font-size: 56px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-text { font-size: 26px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-title { font-size: 32px; }
+      .project-header { flex-direction: column; gap: 8px; }
+      .proceso-grid { grid-template-columns: 1fr; }
+      .proceso-step-arrow { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-cta { flex-direction: column; }
+      footer { flex-direction: column; gap: 12px; padding: 30px 24px; }
+      .project-image.medium { max-width: 100%; }
+      .project-image.small  { max-width: 100%; }
+      .tiers-grid { grid-template-columns: 1fr; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .ableton-grid { grid-template-columns: 1fr 1fr; }
+      .sheet-header, .sheet-row { grid-template-columns: 1fr 1fr; }
+      .sheet-header-cell:nth-child(n+3),
+      .sheet-cell:nth-child(n+3) { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">Alberto Gálvez</div>
+    <div class="nav-links">
+      <a href="#proyectos">Projects</a>
+      <a href="#servicios">Services</a>
+      <a href="#proceso">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="lang-switcher">
+      <a href="/">ES</a>
+      <a href="/en/">EN</a>
+      <a href="/de/">DE</a>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#proyectos" onclick="closeMobileNav()">Projects</a>
+    <a href="#servicios" onclick="closeMobileNav()">Services</a>
+    <a href="#proceso" onclick="closeMobileNav()">Process</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero fade-up">
+    <div class="eyebrow">Automation · AI · Switzerland · Freelance</div>
+    <h1>AI systems that save <em>5+ hours</em> every week.</h1>
+    <p>Senior Sound Technician specialised in automation and AI. I build email triage systems, lead automation, and audio pipelines for businesses that want to scale without hiring.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Let's Talk</a>
+      <a href="#proyectos" class="btn">View Projects</a>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" class="fade-up">
+    <div class="section-label">About</div>
+    <div class="about-grid">
+      <div class="about-text">
+        Senior Sound Technician with experience in
+        <span class="accent">production, post-production and AI-powered audio workflow automation.</span>
+        I build systems that connect technical audio expertise with modern automation for studios, podcasters and agencies.
+      </div>
+      <img src="images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar"
+           onerror="this.style.background='#1a1a1a';this.style.border='1px solid rgba(214,195,165,0.15)';this.removeAttribute('src')" />
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section id="resultados" class="fade-up">
+    <div class="section-label">Results</div>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-num">45'</div>
+        <div class="result-label">Saved every morning with the automated email triage system</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">−80%</div>
+        <div class="result-label">Reduction in manual work for audio post-production</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">−5h</div>
+        <div class="result-label">Per podcast episode compared to a manual production workflow</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">100%</div>
+        <div class="result-label">Of leads and emails classified automatically, with zero human input</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="fade-up">
+    <div class="section-label">Services</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01 —</div>
+        <h3>AI Email Assistant</h3>
+        <p>Automatic triage, priority classification and draft reply for every incoming email. Inbox under control with zero effort.</p>
+        <div class="service-price">From CHF 350</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02 —</div>
+        <h3>AI Customer Support</h3>
+        <p>AI assistant that answers FAQs, classifies requests and escalates complex cases to the human team. Available 24/7.</p>
+        <div class="service-price">From CHF 500</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03 —</div>
+        <h3>Lead Systems</h3>
+        <p>Automated client capture with forms, CRM, AI and intelligent real-time notifications.</p>
+        <div class="service-price">From CHF 600</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04 —</div>
+        <h3>AI Podcast Production</h3>
+        <p>Automated production pipeline: audio cleanup, transcription, show notes and publishing. For solo podcasters.</p>
+        <div class="service-price">From CHF 490</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">05 —</div>
+        <h3>Audio Workflow Automation</h3>
+        <p>Post-production workflow automation for studios, agencies and production companies. Cleanup, EBU R128 normalisation and automatic QC.</p>
+        <div class="service-price">From CHF 890</div>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06 —</div>
+        <h3>Landing Pages</h3>
+        <p>Modern, minimal and conversion-focused websites. Premium digital presence for businesses that want to stand out.</p>
+        <div class="service-price">From CHF 350</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PROYECTO 01 — AI EMAIL ASSISTANT               -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section id="proyectos" class="fade-up">
+    <div class="section-label">Case Study</div>
+    <div class="project-header">
+      <span class="project-number">01 —</span>
+      <h2 class="project-title">AI Email Assistant</h2>
+    </div>
+    <p class="project-desc">
+      Intelligent system that monitors the inbox in real time, classifies each email by category and priority, generates an actionable summary, recommends the next step, and drafts a professional reply ready to send. The user reviews a structured dashboard every morning instead of reading raw emails.
+    </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Challenge</div>
+        <div class="case-study-text">Manual email review consumed 45+ minutes every morning — no system to prioritize, triage, or draft responses automatically.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solution</div>
+        <div class="case-study-text">Automated classification pipeline using Make + Claude AI: every incoming email is categorized, summarized, and paired with a ready-to-send draft reply.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Result</div>
+        <div class="case-study-text">45 minutes saved daily. 100% of emails classified without manual input. Zero high-priority leads missed since implementation.</div>
+      </div>
+    </div>
+    <div class="stack">
+      <span>Make</span><span>Gmail API</span><span>Claude AI</span>
+      <span>Google Sheets</span><span>Webhook</span>
+    </div>
+
+    <div class="accordion-toggle" onclick="toggleAccordion('acc-email')">
+      <span>View full case study — technical flow, tiers and metrics</span>
+      <div class="accordion-arrow">↓</div>
+    </div>
+    <div class="accordion-body" id="acc-email">
+      <div class="accordion-body-inner">
+
+        <div class="accordion-section-title">Flujo del sistema</div>
+        <div class="flow-list">
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div class="flow-content">
+              <div class="flow-title">Trigger de entrada</div>
+              <div class="flow-desc">Make detecta cada nuevo email en Gmail en tiempo real. Extrae remitente, asunto y cuerpo del mensaje para su análisis.</div>
+              <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Gmail API</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div class="flow-content">
+              <div class="flow-title">Clasificación y análisis con IA</div>
+              <div class="flow-desc">Claude AI procesa el email y devuelve un JSON estructurado: categoría (Ventas, Soporte, Admin, Spam), prioridad (Alta / Media / Baja), resumen ejecutivo en 2 líneas y acción recomendada.</div>
+              <div class="flow-tools"><span class="flow-tool">Claude AI</span><span class="flow-tool">JSON output</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div class="flow-content">
+              <div class="flow-title">Redacción de respuesta sugerida</div>
+              <div class="flow-desc">En el mismo paso, la IA genera una respuesta profesional lista para enviar, adaptada al tono del remitente y al contexto del negocio.</div>
+              <div class="flow-tools"><span class="flow-tool">Claude AI</span><span class="flow-tool">Prompt engineering</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div class="flow-content">
+              <div class="flow-title">Registro en dashboard</div>
+              <div class="flow-desc">Google Sheets registra cada email con todos los campos: fecha, remitente, asunto, categoría, prioridad, resumen, acción y respuesta sugerida. Una fila por email, formato estructurado y filtrable.</div>
+              <div class="flow-tools"><span class="flow-tool">Google Sheets</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Dashboard real — datos del sistema</div>
+        <div class="sheet-preview">
+          <div class="sheet-header">
+            <div class="sheet-header-cell">Remitente</div>
+            <div class="sheet-header-cell">Asunto</div>
+            <div class="sheet-header-cell">Categoría</div>
+            <div class="sheet-header-cell">Prioridad</div>
+            <div class="sheet-header-cell">Acción recomendada</div>
+          </div>
+          <div class="sheet-row">
+            <div class="sheet-cell">Carlos Mendoza · LogiTrans S.A.</div>
+            <div class="sheet-cell">Urgente: Duda sobre presupuesto de desarrollo web</div>
+            <div class="sheet-cell category">Ventas</div>
+            <div class="sheet-cell high">Alta</div>
+            <div class="sheet-cell">Llamada de 10 min mañana para discutir requisitos y tarifas</div>
+          </div>
+          <div class="sheet-row">
+            <div class="sheet-cell">Fwd: Carlos Mendoza · LogiTrans S.A.</div>
+            <div class="sheet-cell">Re: Urgente — plazos de entrega y disponibilidad</div>
+            <div class="sheet-cell category">Ventas</div>
+            <div class="sheet-cell high">Alta</div>
+            <div class="sheet-cell">Contactar inmediatamente para agendar la llamada y confirmar disponibilidad</div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="tiers-grid">
+          <div class="tier-card">
+            <div class="tier-name">Tier 1 — Triage básico</div>
+            <div class="tier-price">CHF 350–500</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Gmail + clasificación IA</li>
+              <li>Dashboard Google Sheets</li>
+              <li>4 categorías configuradas</li>
+              <li>2 semanas soporte</li>
+            </ul>
+          </div>
+          <div class="tier-card featured">
+            <div class="tier-badge">Recomendado</div>
+            <div class="tier-name">Tier 2 — Respuestas automáticas</div>
+            <div class="tier-price">CHF 600–900</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Todo el Tier 1</li>
+              <li>Borrador de respuesta por email</li>
+              <li>Alertas Telegram prioridad alta</li>
+              <li>Categorías personalizadas</li>
+              <li>4 semanas soporte</li>
+            </ul>
+          </div>
+          <div class="tier-card">
+            <div class="tier-name">Tier 3 — Integración CRM</div>
+            <div class="tier-price">desde CHF 1.200</div>
+            <div class="tier-note">proyecto a medida</div>
+            <ul class="tier-list">
+              <li>Multi-cuenta</li>
+              <li>Integración CRM existente</li>
+              <li>Categorías y reglas custom</li>
+              <li>Onboarding videollamada</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-num">45'</div><div class="metric-label">Ahorrados cada mañana en revisión de inbox</div></div>
+          <div class="metric-card"><div class="metric-num">100%</div><div class="metric-label">De emails clasificados sin intervención humana</div></div>
+          <div class="metric-card"><div class="metric-num">0</div><div class="metric-label">Leads de alta prioridad perdidos desde la implantación</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PROYECTO 02 — AI LEAD AUTOMATION — AESCHI      -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="fade-up">
+    <div class="section-label">Proyecto Destacado</div>
+    <div class="project-header">
+      <span class="project-number">02 —</span>
+      <h2 class="project-title">AI Lead Automation System — Aeschi Studio</h2>
+    </div>
+    <p class="project-desc">
+      Intelligent lead capture system connected to AI, CRM, Google Sheets, Telegram and advanced automation via Make.
+    </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Challenge</div>
+        <div class="case-study-text">Leads arriving via web form were handled manually — no scoring, no instant follow-up, no CRM record. High-value contacts slipped through the gaps.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solution</div>
+        <div class="case-study-text">End-to-end lead automation: form submission triggers Gemini AI scoring, instant Telegram alert with lead summary, and automatic CRM entry in Google Sheets.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Result</div>
+        <div class="case-study-text">Every lead scored, logged, and notified in under 60 seconds. Response time reduced from hours to minutes. Full contact history available from day one.</div>
+      </div>
+    </div>
+    <div class="stack">
+      <span>Make</span><span>Gemini AI</span><span>Telegram</span>
+      <span>Google Sheets</span><span>Webhook</span><span>Gmail</span><span>GitHub Pages</span>
+    </div>
+    <img src="images/01-landing-page.jpg"      alt="Landing Page"        class="project-image medium center" />
+    <img src="images/02-contact-form.jpg"       alt="Formulario Contacto" class="project-image small center"  />
+    <img src="images/03-make-automation.jpg"    alt="Make Automation"     class="project-image large"         />
+    <img src="images/04-google-sheets-crm.jpg"  alt="Google Sheets CRM"   class="project-image medium center" />
+    <img src="images/05-telegram-ai.jpg"        alt="Telegram AI"         class="project-image small center"  />
+    <img src="images/06-email-automation.jpg"   alt="Email Automation"    class="project-image small center"  />
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PROYECTO 03 — AI BOOKING — JOTAGRIND           -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="fade-up">
+    <div class="section-label">Proyecto Completado</div>
+    <div class="project-header">
+      <span class="project-number">03 —</span>
+      <h2 class="project-title">AI Booking System — JotaGrind Studio</h2>
+    </div>
+    <p class="project-desc">
+      Premium booking landing page for a high-end tattoo studio. End-to-end system: intelligent intake form, lead analysis with Gemini AI, instant Telegram alerts and automatic CRM in Google Sheets. Deployed in production and delivered to a real client.
+    </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Challenge</div>
+        <div class="case-study-text">A high-end tattoo studio was managing bookings via DMs and manual emails — no way to filter serious clients from casual inquiries or track pipeline status.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solution</div>
+        <div class="case-study-text">Premium booking landing page with intelligent intake form. Each submission analyzed by Gemini AI to score lead quality, trigger Telegram alerts, and build a live CRM in Sheets.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Result</div>
+        <div class="case-study-text">Full booking system deployed and delivered to a real client. Studio owner receives instant AI-scored lead summaries with zero manual data entry.</div>
+      </div>
+    </div>
+    <div class="stack">
+      <span>Make</span><span>Gemini AI</span><span>Telegram</span>
+      <span>Google Sheets</span><span>Webhook</span><span>Vercel</span><span>HTML / CSS / JS</span>
+    </div>
+    <img src="images/jota-01-landing.jpg"       alt="JotaGrind — Landing"          class="project-image large" />
+    <img src="images/jota-02-form.jpg"           alt="JotaGrind — Formulario"       class="project-image medium center" />
+    <img src="images/jota-03-make.jpg"           alt="JotaGrind — Make Scenario"    class="project-image large" />
+    <img src="images/jota-04-sheets-alta.jpg"    alt="Lead Alta — Google Sheets"    class="project-image medium center" />
+    <img src="images/jota-05-sheets-medium.jpg"  alt="Lead Media — Google Sheets"   class="project-image medium center" />
+    <img src="images/jota-06-sheets-bajo.jpg"    alt="Lead Bajo — Google Sheets"    class="project-image medium center" />
+    <img src="images/jota-07-telegram.jpg"       alt="JotaGrind — Telegram Alert"   class="project-image small center" />
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PROYECTO 04 — AI PODCAST PRODUCTION SYSTEM     -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="fade-up" id="proj-podcast">
+    <div class="section-label">Servicio Activo</div>
+    <div class="project-header">
+      <span class="project-number">04 —</span>
+      <h2 class="project-title">AI Podcast Production System</h2>
+    </div>
+    <p class="project-desc">
+      End-to-end automated system that transforms raw audio into ready-to-publish editorial content. The podcaster records, uploads a file, and within 15 minutes receives processed audio, transcript, show notes, alternative titles, social quotes and timestamped chapters. Built for solo podcasters without a production team.
+    </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Challenge</div>
+        <div class="case-study-text">Solo podcasters were spending 5+ hours per episode on audio cleanup, transcription, show notes, and social content — a production bottleneck that limited output frequency.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solution</div>
+        <div class="case-study-text">Fully automated pipeline: upload raw audio → Auphonic cleans and normalizes → Whisper transcribes → Claude generates all editorial content → Telegram delivers the complete package.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Result</div>
+        <div class="case-study-text">5 hours per episode reduced to under 15 minutes. 6+ deliverables generated automatically: processed audio, transcript, show notes, titles, quotes, and chapter markers.</div>
+      </div>
+    </div>
+    <div class="stack">
+      <span>Make</span><span>Auphonic API</span><span>Whisper API</span>
+      <span>Claude API</span><span>Ableton Live</span><span>Telegram</span><span>Google Drive</span>
+    </div>
+
+    <div class="accordion-toggle" onclick="toggleAccordion('acc-podcast')">
+      <span>View full case study — technical flow, tiers and metrics</span>
+      <div class="accordion-arrow">↓</div>
+    </div>
+    <div class="accordion-body" id="acc-podcast">
+      <div class="accordion-body-inner">
+
+        <div class="accordion-section-title">Flujo del sistema</div>
+        <div class="flow-list">
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div class="flow-content">
+              <div class="flow-title">Trigger de entrada</div>
+              <div class="flow-desc">Make detecta el archivo nuevo en /ingest/ de Google Drive. Verifica naming convention y registra la entrada en Google Sheets.</div>
+              <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Google Drive</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div class="flow-content">
+              <div class="flow-title">Limpieza y normalización de audio</div>
+              <div class="flow-desc">Auphonic API aplica reducción de ruido, eliminación de hum y normalización de loudness a -16 LUFS (estándar streaming). Exporta WAV limpio.</div>
+              <div class="flow-tools"><span class="flow-tool">Auphonic API</span><span class="flow-tool">EBU R128 · -16 LUFS</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div class="flow-content">
+              <div class="flow-title">Transcripción con timestamps</div>
+              <div class="flow-desc">Whisper API transcribe el episodio en español con marcas de tiempo por párrafo. El .txt se guarda en Drive como input del siguiente paso.</div>
+              <div class="flow-tools"><span class="flow-tool">Whisper API</span><span class="flow-tool">Español neutro</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div class="flow-content">
+              <div class="flow-title">Generación de contenido con IA</div>
+              <div class="flow-desc">La transcripción se procesa con Claude API. Devuelve JSON con 3 títulos, descripción para plataformas, show notes, 5 quotes para redes y capítulos con tiempos.</div>
+              <div class="flow-tools"><span class="flow-tool">Claude API</span><span class="flow-tool">JSON output</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">05</div>
+            <div class="flow-content">
+              <div class="flow-title">Registro y notificación</div>
+              <div class="flow-desc">Google Sheets registra el episodio con todos los metadatos. Telegram Bot envía al cliente preview del título y link directo a la carpeta de entrega.</div>
+              <div class="flow-tools"><span class="flow-tool">Google Sheets</span><span class="flow-tool">Telegram Bot</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">06</div>
+            <div class="flow-content">
+              <div class="flow-title">Publicación automática (Tier 2/3)</div>
+              <div class="flow-desc">Tras la aprobación del cliente vía Telegram, Make sube el episodio a RSS.com o Buzzsprout con título, descripción y capítulos ya rellenados.</div>
+              <div class="flow-tools"><span class="flow-tool">RSS.com API</span><span class="flow-tool">Buzzsprout</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Ableton Live — Template de grabación incluido en el onboarding</div>
+        <div class="ableton-callout">
+          <div class="ableton-label">Live Set preconfigurado para el cliente</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;">El cliente recibe un Live Set listo para abrir y grabar. Garantiza que el audio entra al pipeline en condiciones óptimas sin necesidad de conocimientos técnicos de audio.</p>
+          <div class="ableton-grid">
+            <div class="ableton-item"><div class="ableton-fn">Pistas</div><div class="ableton-val">Host + Guest · Mono</div></div>
+            <div class="ableton-item"><div class="ableton-fn">Cadena</div><div class="ableton-val">EQ · Gate · Comp · EQ</div></div>
+            <div class="ableton-item"><div class="ableton-fn">Export</div><div class="ableton-val">WAV 24bit · 44.1kHz</div></div>
+            <div class="ableton-item"><div class="ableton-fn">Naming</div><div class="ableton-val">EP001_HOST.wav</div></div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="tiers-grid">
+          <div class="tier-card">
+            <div class="tier-name">Tier 1 — Listo para grabar</div>
+            <div class="tier-price">CHF 490–690</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Flujo Make completo</li>
+              <li>Auphonic configurado</li>
+              <li>Ableton Live Set</li>
+              <li>Telegram Bot activo</li>
+              <li>2 semanas soporte</li>
+            </ul>
+          </div>
+          <div class="tier-card featured">
+            <div class="tier-badge">Recomendado</div>
+            <div class="tier-name">Tier 2 — Piloto automático</div>
+            <div class="tier-price">CHF 190–290</div>
+            <div class="tier-note">por mes</div>
+            <ul class="tier-list">
+              <li>Todo el Tier 1</li>
+              <li>Mantenimiento mensual</li>
+              <li>Clips para redes sociales</li>
+              <li>Ajustes y mejoras</li>
+            </ul>
+          </div>
+          <div class="tier-card">
+            <div class="tier-name">Tier 3 — Estudio completo</div>
+            <div class="tier-price">desde CHF 1.200</div>
+            <div class="tier-note">proyecto a medida</div>
+            <ul class="tier-list">
+              <li>Integración email + redes</li>
+              <li>Flujo de aprobación</li>
+              <li>Onboarding videollamada</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-num">~15'</div><div class="metric-label">De audio bruto a contenido listo para revisar</div></div>
+          <div class="metric-card"><div class="metric-num">−5h</div><div class="metric-label">Por episodio respecto al flujo manual</div></div>
+          <div class="metric-card"><div class="metric-num">6+</div><div class="metric-label">Entregables generados automáticamente</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PROYECTO 05 — AUDIO POST-PRODUCTION AUTOMATION -->
+  <!-- ══════════════════════════════════════════════ -->
+  <section class="fade-up" id="proj-postprod">
+    <div class="section-label">Servicio Activo</div>
+    <div class="project-header">
+      <span class="project-number">05 —</span>
+      <h2 class="project-title">Audio Post-Production Automation Consultant</h2>
+    </div>
+    <p class="project-desc">
+      Automated cleanup, processing and delivery pipeline for dubbing studios, audiovisual agencies and recording studios. The system classifies incoming files, separates sources, normalises to each destination standard and runs automatic quality control. Senior Sound Technician expertise embedded in every parameter.
+    </p>
+
+    <div class="case-study-grid">
+      <div class="case-study-block">
+        <div class="case-study-label challenge">Challenge</div>
+        <div class="case-study-text">Post-production studios were processing audio files manually — no consistent loudness standards across deliverables, no automated QC, and 80% of time spent on repetitive technical tasks.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label solution">Solution</div>
+        <div class="case-study-text">Automated processing pipeline: ingest → source separation via Lalal.ai → Auphonic normalization per destination standard (Broadcast / Streaming / Dubbing) → FFmpeg QC → Telegram delivery report.</div>
+      </div>
+      <div class="case-study-block">
+        <div class="case-study-label result">Result</div>
+        <div class="case-study-text">80% reduction in manual processing time. 100% consistent technical output per file. Zero loudness or True Peak errors on delivery since implementation.</div>
+      </div>
+    </div>
+    <div class="stack">
+      <span>Make</span><span>Auphonic API</span><span>Lalal.ai API</span>
+      <span>FFmpeg</span><span>Whisper API</span><span>EBU R128</span><span>Telegram</span>
+    </div>
+
+    <div class="accordion-toggle" onclick="toggleAccordion('acc-postprod')">
+      <span>View full case study — technical flow, tiers and metrics</span>
+      <div class="accordion-arrow">↓</div>
+    </div>
+    <div class="accordion-body" id="acc-postprod">
+      <div class="accordion-body-inner">
+
+        <div class="accordion-section-title">Pipeline de procesado</div>
+        <div class="flow-list">
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div class="flow-content">
+              <div class="flow-title">Ingest y clasificación</div>
+              <div class="flow-desc">Make detecta archivos nuevos, analiza nombre y metadata para clasificar el tipo de contenido y enrutar al pipeline correcto. Registra entrada en Sheets.</div>
+              <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Google Drive</span><span class="flow-tool">Google Sheets</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div class="flow-content">
+              <div class="flow-title">Separación de fuentes</div>
+              <div class="flow-desc">Lalal.ai API separa voz, ruido de fondo y música en stems independientes. Limpiar cada elemento por separado da resultados significativamente mejores que limpiar el mix completo.</div>
+              <div class="flow-tools"><span class="flow-tool">Lalal.ai API</span><span class="flow-tool">Stems separation</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div class="flow-content">
+              <div class="flow-title">Limpieza y normalización por destino</div>
+              <div class="flow-desc">Auphonic aplica noise reduction, hum removal y de-essing. Loudness ajustado según destino: Broadcast −23 LUFS · Streaming −16 LUFS · YouTube −14 LUFS · Doblaje −18 LUFS + True Peak −1 dBTP.</div>
+              <div class="flow-tools"><span class="flow-tool">Auphonic API</span><span class="flow-tool">EBU R128</span><span class="flow-tool">True Peak</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div class="flow-content">
+              <div class="flow-title">Control de calidad automatizado</div>
+              <div class="flow-desc">FFmpeg webhook verifica LUFS final, True Peak y duración vs original. Si el archivo no pasa el QC, alerta inmediata vía Telegram con el motivo específico.</div>
+              <div class="flow-tools"><span class="flow-tool">FFmpeg</span><span class="flow-tool">Telegram Alert</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">05</div>
+            <div class="flow-content">
+              <div class="flow-title">Subtítulos automáticos</div>
+              <div class="flow-desc">Whisper API genera .srt y .vtt para proyectos de doblaje y localización, y .txt con timestamps para edición.</div>
+              <div class="flow-tools"><span class="flow-tool">Whisper API</span><span class="flow-tool">.srt · .vtt · .txt</span></div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">06</div>
+            <div class="flow-content">
+              <div class="flow-title">Empaquetado, informe y entrega</div>
+              <div class="flow-desc">Make organiza la carpeta de entrega. Genera informe técnico con LUFS, True Peak, herramientas y tiempo de procesado. Telegram notifica al técnico con el resumen completo.</div>
+              <div class="flow-tools"><span class="flow-tool">Google Drive</span><span class="flow-tool">Informe QC</span><span class="flow-tool">Telegram Bot</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Por qué un Técnico Superior de Sonido</div>
+        <div class="diffs-list">
+          <div class="diff-item"><div class="diff-icon">🎚️</div><div><div class="diff-title">Parámetros de loudness con criterio profesional</div><div class="diff-text">EBU R128, −16 LUFS y −14 LUFS no son lo mismo. Cada destino tiene su estándar. El sistema aplica el correcto automáticamente para broadcast, streaming, doblaje o YouTube.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">🔬</div><div><div class="diff-title">Separación de fuentes antes de limpiar</div><div class="diff-text">Limpiar el mix completo da peor resultado que limpiar la voz sola y recombinar. Este orden de operaciones solo lo define alguien que entiende el audio a nivel técnico.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">✅</div><div><div class="diff-title">QC con métricas reales</div><div class="diff-text">El sistema verifica True Peak, LUFS integrado y duración. Son las mismas métricas que piden broadcasters y distribuidoras en sus especificaciones técnicas de entrega.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">🤝</div><div><div class="diff-title">Conversación técnica de igual a igual</div><div class="diff-text">Phase coherence, artifacts del de-noiser, limitaciones del compresor en ciertos materiales. Con el técnico del estudio se habla de tú a tú. Eso genera confianza y reduce fricción.</div></div></div>
+        </div>
+
+        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="tiers-grid">
+          <div class="tier-card">
+            <div class="tier-name">Tier 1 — Pipeline básico</div>
+            <div class="tier-price">CHF 890–1.200</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Flujo para 1 tipo de contenido</li>
+              <li>Auphonic configurado</li>
+              <li>QC automático + alertas</li>
+              <li>3 semanas soporte</li>
+            </ul>
+          </div>
+          <div class="tier-card featured">
+            <div class="tier-badge">Más completo</div>
+            <div class="tier-name">Tier 2 — Sistema completo</div>
+            <div class="tier-price">CHF 1.800–2.500</div>
+            <div class="tier-note">Setup único</div>
+            <ul class="tier-list">
+              <li>Tres pipelines completos</li>
+              <li>Lalal.ai separación fuentes</li>
+              <li>Subtítulos automáticos</li>
+              <li>Onboarding videollamada</li>
+            </ul>
+          </div>
+          <div class="tier-card">
+            <div class="tier-name">Tier 3 — Mantenimiento</div>
+            <div class="tier-price">CHF 290–490</div>
+            <div class="tier-note">por mes</div>
+            <ul class="tier-list">
+              <li>Monitoreo del sistema</li>
+              <li>Ajuste de parámetros</li>
+              <li>Nuevos pipelines</li>
+              <li>Soporte Telegram</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-num">−80%</div><div class="metric-label">Tiempo de procesado manual por proyecto</div></div>
+          <div class="metric-card"><div class="metric-num">100%</div><div class="metric-label">Consistencia técnica entre archivos del proyecto</div></div>
+          <div class="metric-card"><div class="metric-num">0</div><div class="metric-label">Entregas con error de loudness o True Peak</div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="proceso" class="fade-up">
+    <div class="section-label">How I Work</div>
+    <div class="proceso-grid">
+      <div class="proceso-step">
+        <div class="proceso-step-number">01</div>
+        <h3>Initial Consultation</h3>
+        <p>We talk for 30 minutes to understand your business, your current processes and where the biggest bottleneck is. No commitment required.</p>
+        <div class="proceso-step-arrow">→</div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-step-number">02</div>
+        <h3>Design & Build</h3>
+        <p>I build the system from scratch: automations, integrations and workflows tailored exactly to your case. I keep you informed at every step.</p>
+        <div class="proceso-step-arrow">→</div>
+      </div>
+      <div class="proceso-step">
+        <div class="proceso-step-number">03</div>
+        <h3>Delivery & Support</h3>
+        <p>I deliver the working system, walk you through how to use it, and remain available for post-delivery adjustments. Your investment does not disappear on day one.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contact" class="fade-up">
+    <div class="section-label">Contact</div>
+    <div class="contact-grid">
+      <div class="contact-inner">
+        <div class="contact-text">Got a project in mind?<br/>Let's talk.</div>
+        <p class="contact-sub">Available for automation, AI and digital systems projects. I reply within 24 hours.</p>
+        <a href="mailto:contact@albertogalvez.ch" class="email-link">contact@albertogalvez.ch</a>
+        </div>
+      <div>
+        <form class="contact-form" action="https://formspree.io/f/mbdbkrzr" method="POST" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="service">Service of interest</label>
+            <select id="service" name="service">
+              <option value="" disabled selected>Select a service</option>
+              <option value="email-assistant">AI Email Assistant</option>
+              <option value="customer-support">AI Customer Support</option>
+              <option value="leads">Lead Systems</option>
+              <option value="podcast">AI Podcast Production System</option>
+              <option value="postprod">Audio Post-Production Automation</option>
+              <option value="landing">Landing Page</option>
+              <option value="otro">Other / Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me briefly about your project or need..." required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">Start a Project →</button>
+          </div>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>Alberto Gálvez</div>
+    <div>Sound Technician • Automation Specialist • 2026</div>
+    <div class="contact-links">
+      <a href="#proyectos">Projects</a>
+      <a href="#servicios">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/alberto-gálvez-43b79a411/"
+         target="_blank"
+         rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/AlbertoGF86"
+         target="_blank"
+         rel="noopener noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    fadeElements.forEach((el) => observer.observe(el));
+  </script>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            status.textContent = '✓ Message sent. I will reply within 24 hours.';
+            status.classList.add('visible');
+            form.reset();
+          } else {
+            status.textContent = 'Something went wrong. Email me directly at contact@albertogalvez.ch';
+            status.classList.add('visible');
+          }
+        } catch {
+          status.textContent = 'Network error. Email me directly at contact@albertogalvez.ch';
+          status.classList.add('visible');
+        }
+        btn.textContent = 'Start a Project →';
+        btn.disabled = false;
+      });
+    }
+  </script>
+
+  <script>
+    function toggleAccordion(id) {
+      const body = document.getElementById(id);
+      const section = body.closest('section');
+      const arrow = section.querySelector('.accordion-arrow');
+      const isOpen = section.classList.contains('accordion-open');
+      if (isOpen) {
+        body.style.maxHeight = '0';
+        section.classList.remove('accordion-open');
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        section.classList.add('accordion-open');
+      }
+    }
+  </script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMobile = document.getElementById('navMobile');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMobile.classList.toggle('open');
+    });
+    function closeMobileNav() {
+      hamburger.classList.remove('open');
+      navMobile.classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>
