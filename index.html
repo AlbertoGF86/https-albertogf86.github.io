@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alberto Gálvez — Automatización + IA · Suiza</title>
-  <meta name="description" content="Sistemas de automatización, IA y soluciones digitales para negocios modernos. Basado en Suiza." />
+  <meta name="description" content="Designing efficient audio workflows, technical systems and automation solutions for modern production environments." />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='6' y='24' font-size='20' fill='%23d6c3a5'>AG</text></svg>" />
 
@@ -49,19 +49,6 @@
       background: rgba(10, 10, 10, 0.55);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .lang-switcher {
-      display: flex;
-      gap: 14px;
-      margin-left: 24px;
-    }
-    .lang-switcher a {
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .lang-switcher a:hover { color: var(--accent); }
 
     .nav-logo { font-size: 14px; letter-spacing: -0.02em; font-weight: 600; }
     .nav-links { display: flex; gap: 32px; }
@@ -179,7 +166,7 @@
     .service-card { padding: 44px 36px; background: var(--card); transition: background 0.3s; }
     .service-card:hover { background: #161616; }
     .service-number { font-size: 11px; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 20px; }
-    .service-card h3 { font-size: 22px; margin-bottom: 14px; font-weight: 500; letter-spacing: -0.02em; }
+    .service-card h4 { font-size: 22px; margin-bottom: 14px; font-weight: 500; letter-spacing: -0.02em; }
     .service-card p { color: var(--muted); line-height: 1.75; font-size: 14px; }
     .service-price { margin-top: 24px; font-size: 12px; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; }
 
@@ -494,6 +481,43 @@
       .sheet-header-cell:nth-child(n+3),
       .sheet-cell:nth-child(n+3) { display: none; }
     }
+
+    .lang-switcher {
+      display: flex;
+      gap: 14px;
+      margin-left: 24px;
+    }
+    .lang-switcher a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-switcher a:hover { color: var(--text); }
+    .lang-switcher .lang-active { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .lang-switcher { margin-left: 0; gap: 12px; }
+    }
+
+    /* ── FLOW DIAGRAMS ── */
+    .flow-diagram {
+      width: 100%;
+      margin-top: 48px;
+      margin-bottom: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .flow-diagram svg {
+      width: 100%;
+      min-width: 640px;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .flow-diagram svg { min-width: 720px; }
+    }
   </style>
 </head>
 
@@ -508,14 +532,14 @@
       <a href="#proceso">Proceso</a>
       <a href="#contact">Contacto</a>
     </div>
+    <div class="lang-switcher">
+      <a href="/" class="lang-active">ES</a>
+      <a href="/en/">EN</a>
+      <a href="/de/">DE</a>
+    </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
-    <div class="lang-switcher">
-     <a href="/">ES</a>
-     <a href="/en/">EN</a>
-     <a href="/de/">DE</a>
-    </div>
   </nav>
 
   <div class="nav-mobile" id="navMobile">
@@ -545,7 +569,7 @@
         <span class="accent">producción, post-producción y automatización de flujos de audio con IA.</span>
         Construyo sistemas que conectan criterio técnico de sonido con automatización moderna para estudios, podcasters y agencias.
       </div>
-      <img src="images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar"
+      <img src="images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar" width="600" height="750" loading="lazy"
            onerror="this.style.background='#1a1a1a';this.style.border='1px solid rgba(214,195,165,0.15)';this.removeAttribute('src')" />
       </div>
     </div>
@@ -580,37 +604,37 @@
     <div class="services-grid">
       <div class="service-card">
         <div class="service-number">01 —</div>
-        <h3>AI Email Assistant</h3>
+        <h4>AI Email Assistant</h4>
         <p>Triage automático, clasificación por prioridad y borrador de respuesta para cada email entrante. Inbox bajo control sin esfuerzo.</p>
         <div class="service-price">Desde 350 CHF</div>
       </div>
       <div class="service-card">
         <div class="service-number">02 —</div>
-        <h3>AI Customer Support</h3>
+        <h4>AI Customer Support</h4>
         <p>Asistente IA que responde preguntas frecuentes, clasifica solicitudes y escala los casos complejos al equipo humano. Disponible 24/7.</p>
         <div class="service-price">Desde 500 CHF</div>
       </div>
       <div class="service-card">
         <div class="service-number">03 —</div>
-        <h3>Lead Systems</h3>
+        <h4>Lead Systems</h4>
         <p>Captación automatizada de clientes con formularios, CRM, IA y notificaciones inteligentes en tiempo real.</p>
         <div class="service-price">Desde 600 CHF</div>
       </div>
       <div class="service-card">
         <div class="service-number">04 —</div>
-        <h3>AI Podcast Production</h3>
+        <h4>AI Podcast Production</h4>
         <p>Pipeline automatizado de producción: limpieza de audio, transcripción, show notes y publicación. Para podcasters sin equipo.</p>
         <div class="service-price">Desde 490 CHF</div>
       </div>
       <div class="service-card">
         <div class="service-number">05 —</div>
-        <h3>Audio Workflow Automation</h3>
+        <h4>Audio Workflow Automation</h4>
         <p>Automatización de flujos de post-producción para estudios, agencias y productoras. Limpieza, normalización EBU R128 y QC automático.</p>
         <div class="service-price">Desde 890 CHF</div>
       </div>
       <div class="service-card">
         <div class="service-number">06 —</div>
-        <h3>Landing Pages</h3>
+        <h4>Landing Pages</h4>
         <p>Webs modernas, minimalistas y enfocadas en conversión. Presencia digital premium para negocios que quieren destacar.</p>
         <div class="service-price">Desde 350 CHF</div>
       </div>
@@ -650,6 +674,41 @@
     <div class="stack">
       <span>Make</span><span>Gmail API</span><span>Claude AI</span>
       <span>Google Sheets</span><span>Webhook</span>
+    </div>
+
+
+    <div class="flow-diagram">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/>
+          </marker>
+        </defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="770" y="40" width="120" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRIGGER</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">PROCESO IA</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ALMACÉN</text>
+        <text x="830" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">SALIDA</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Gmail</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Email entrante</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Make</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Webhook trigger</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Claude AI</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Clasifica + redacta</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Google Sheets</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Log + prioridad</text>
+        <text x="830" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Dashboard</text>
+        <text x="830" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Resumen diario</text>
+      </svg>
     </div>
 
     <div class="accordion-toggle" onclick="toggleAccordion('acc-email')">
@@ -802,15 +861,45 @@
       <span>Make</span><span>Gemini AI</span><span>Telegram</span>
       <span>Google Sheets</span><span>Webhook</span><span>Gmail</span><span>GitHub Pages</span>
     </div>
-    <img src="images/01-landing-page.jpg"      alt="Landing Page"        class="project-image medium center" />
-    <img src="images/02-contact-form.jpg"       alt="Formulario Contacto" class="project-image small center"  />
-    <img src="images/03-make-automation.jpg"    alt="Make Automation"     class="project-image large"         />
-    <img src="images/04-google-sheets-crm.jpg"  alt="Google Sheets CRM"   class="project-image medium center" />
-    <img src="images/05-telegram-ai.jpg"        alt="Telegram AI"         class="project-image small center"  />
-    <img src="images/06-email-automation.jpg"   alt="Email Automation"    class="project-image small center"  />
-  </section>
+</section>
 
   <!-- ══════════════════════════════════════════════ -->
+
+    <div class="flow-diagram">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/>
+          </marker>
+        </defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="120" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRIGGER</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">SCORING IA</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ALERTA</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">CRM</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Formulario</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Lead entrante</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Make</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Webhook trigger</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Gemini AI</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Califica + resume</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Notificación &lt;60s</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Google Sheets</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Registro auto</text>
+      </svg>
+    </div>
+  </section>
+
   <!-- PROYECTO 03 — AI BOOKING — JOTAGRIND           -->
   <!-- ══════════════════════════════════════════════ -->
   <section class="fade-up">
@@ -828,7 +917,7 @@
     <div class="case-study-grid">
       <div class="case-study-block">
         <div class="case-study-label challenge">Desafío</div>
-        <div class="case-study-text">A high-end tattoo studio was managing bookings via DMs and manual emails — no way to filter serious clients from casual inquiries or track pipeline status.</div>
+        <div class="case-study-text">Un estudio de tatuajes premium gestionaba reservas por mensajes directos y emails manuales — sin filtrar clientes serios de consultas casuales ni seguimiento del pipeline.</div>
       </div>
       <div class="case-study-block">
         <div class="case-study-label solution">Solución</div>
@@ -843,16 +932,50 @@
       <span>Make</span><span>Gemini AI</span><span>Telegram</span>
       <span>Google Sheets</span><span>Webhook</span><span>Vercel</span><span>HTML / CSS / JS</span>
     </div>
-    <img src="images/jota-01-landing.jpg"       alt="JotaGrind — Landing"          class="project-image large" />
-    <img src="images/jota-02-form.jpg"           alt="JotaGrind — Formulario"       class="project-image medium center" />
-    <img src="images/jota-03-make.jpg"           alt="JotaGrind — Make Scenario"    class="project-image large" />
-    <img src="images/jota-04-sheets-alta.jpg"    alt="Lead Alta — Google Sheets"    class="project-image medium center" />
-    <img src="images/jota-05-sheets-medium.jpg"  alt="Lead Media — Google Sheets"   class="project-image medium center" />
-    <img src="images/jota-06-sheets-bajo.jpg"    alt="Lead Bajo — Google Sheets"    class="project-image medium center" />
-    <img src="images/jota-07-telegram.jpg"       alt="JotaGrind — Telegram Alert"   class="project-image small center" />
-  </section>
+</section>
 
   <!-- ══════════════════════════════════════════════ -->
+
+    <div class="flow-diagram">
+      <svg viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arr3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/>
+          </marker>
+        </defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="960" y="40" width="90"  height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="910" y1="100" x2="956" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">CLIENTE</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRIGGER</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">SCORING IA</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ALERTA</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">CRM</text>
+        <text x="1005" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ENTREGA</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Landing</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Reserva</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Make</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Webhook</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Gemini AI</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Puntúa lead</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Notificación</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Google Sheets</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Registro auto</text>
+        <text x="1005" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Cliente</text>
+        <text x="1005" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Live</text>
+      </svg>
+    </div>
+  </section>
+
   <!-- PROYECTO 04 — AI PODCAST PRODUCTION SYSTEM     -->
   <!-- ══════════════════════════════════════════════ -->
   <section class="fade-up" id="proj-podcast">
@@ -887,7 +1010,42 @@
       <span>Claude API</span><span>Ableton Live</span><span>Telegram</span><span>Google Drive</span>
     </div>
 
-    <div class="accordion-toggle" onclick="toggleAccordion('acc-podcast')">
+    <div class="flow-diagram">
+      <svg viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="arr4" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/></marker></defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="960" y="40" width="90"  height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="910" y1="100" x2="956" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">AUDIO</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRANSCRIPCIÓN</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">CONTENIDO IA</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ORQUESTA</text>
+        <text x="1005" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ENTREGA</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Audio bruto</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Subida archivo</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Auphonic</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Limpia + normaliza</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Whisper</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Transcripción</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Claude AI</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Notes + títulos</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Make</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Orquesta flujo</text>
+        <text x="1005" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="1005" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Paquete listo</text>
+      </svg>
+    </div>
+
+<div class="accordion-toggle" onclick="toggleAccordion('acc-podcast')">
       <span>Ver caso de estudio completo — flujo técnico, tiers y métricas</span>
       <div class="accordion-arrow">↓</div>
     </div>
@@ -1042,7 +1200,42 @@
       <span>FFmpeg</span><span>Whisper API</span><span>EBU R128</span><span>Telegram</span>
     </div>
 
-    <div class="accordion-toggle" onclick="toggleAccordion('acc-postprod')">
+    <div class="flow-diagram">
+      <svg viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="arr5" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/></marker></defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="960" y="40" width="90"  height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="910" y1="100" x2="956" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">SEPARACIÓN</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">NORMALIZACIÓN</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">QC AUTO</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ORQUESTA</text>
+        <text x="1005" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">INFORME</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Audio bruto</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Clasificación</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Lalal.ai</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Separa fuentes</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Auphonic</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">EBU R128</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">FFmpeg</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">True Peak + QC</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Make</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Orquesta flujo</text>
+        <text x="1005" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="1005" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Entrega OK</text>
+      </svg>
+    </div>
+
+<div class="accordion-toggle" onclick="toggleAccordion('acc-postprod')">
       <span>Ver caso de estudio completo — flujo técnico, tiers y métricas</span>
       <div class="accordion-arrow">↓</div>
     </div>
