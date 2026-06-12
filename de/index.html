@@ -166,7 +166,7 @@
     .service-card { padding: 44px 36px; background: var(--card); transition: background 0.3s; }
     .service-card:hover { background: #161616; }
     .service-number { font-size: 11px; color: var(--muted); letter-spacing: 0.12em; margin-bottom: 20px; }
-    .service-card h3 { font-size: 22px; margin-bottom: 14px; font-weight: 500; letter-spacing: -0.02em; }
+    .service-card h4 { font-size: 22px; margin-bottom: 14px; font-weight: 500; letter-spacing: -0.02em; }
     .service-card p { color: var(--muted); line-height: 1.75; font-size: 14px; }
     .service-price { margin-top: 24px; font-size: 12px; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; }
 
@@ -481,6 +481,43 @@
       .sheet-header-cell:nth-child(n+3),
       .sheet-cell:nth-child(n+3) { display: none; }
     }
+
+    .lang-switcher {
+      display: flex;
+      gap: 14px;
+      margin-left: 24px;
+    }
+    .lang-switcher a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-switcher a:hover { color: var(--text); }
+    .lang-switcher .lang-active { color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .lang-switcher { margin-left: 0; gap: 12px; }
+    }
+
+    /* ── FLOW DIAGRAMS ── */
+    .flow-diagram {
+      width: 100%;
+      margin-top: 48px;
+      margin-bottom: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .flow-diagram svg {
+      width: 100%;
+      min-width: 640px;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .flow-diagram svg { min-width: 720px; }
+    }
   </style>
 </head>
 
@@ -494,6 +531,11 @@
       <a href="#servicios">Leistungen</a>
       <a href="#proceso">Ablauf</a>
       <a href="#contact">Kontakt</a>
+    </div>
+    <div class="lang-switcher">
+      <a href="/">ES</a>
+      <a href="/en/">EN</a>
+      <a href="/de/" class="lang-active">DE</a>
     </div>
     <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -518,8 +560,7 @@
     </div>
   </section>
 
-  <!-- SOBRE MÍ -->
-  <section id="sobre-mi" class="fade-up">
+<section id="sobre-mi" class="fade-up">
     <div class="section-label">Über mich</div>
     <div class="about-grid">
       <div class="about-text">
@@ -527,14 +568,13 @@
         <span class="accent">Produktion, Post-Produktion und KI-gestützter Audio-Workflow-Automatisierung.</span>
         Ich baue Systeme, die technisches Audio-Know-how mit moderner Automatisierung verbinden – für Studios, Podcaster und Agenturen.
       </div>
-      <img src="/images/avatar.jpg" alt="Alberto Gálvez" class="about-avatar"
+      <img src="/images/avatar.jpg" width="600" height="750" loading="lazy" alt="Alberto Gálvez" class="about-avatar"
            onerror="this.style.background='#1a1a1a';this.style.border='1px solid rgba(214,195,165,0.15)';this.removeAttribute('src')" />
       </div>
     </div>
   </section>
 
-  <!-- RESULTADOS -->
-  <section id="resultados" class="fade-up">
+<section id="resultados" class="fade-up">
     <div class="section-label">Ergebnisse</div>
     <div class="results-grid">
       <div class="result-card">
@@ -556,53 +596,49 @@
     </div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="fade-up">
+<section id="servicios" class="fade-up">
     <div class="section-label">Leistungen</div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-number">01 —</div>
-        <h3>AI Email Assistant</h3>
+        <h4>AI Email Assistant</h4>
         <p>Automatisches Triage, Priorisierung und Antwortentwurf für jede eingehende E-Mail. Posteingang unter Kontrolle – ohne Aufwand.</p>
         <div class="service-price">Ab CHF 350</div>
       </div>
       <div class="service-card">
         <div class="service-number">02 —</div>
-        <h3>AI Customer Support</h3>
+        <h4>AI Customer Support</h4>
         <p>KI-Assistent, der FAQs beantwortet, Anfragen klassifiziert und komplexe Fälle an das Team weiterleitet. Rund um die Uhr verfügbar.</p>
         <div class="service-price">Ab CHF 500</div>
       </div>
       <div class="service-card">
         <div class="service-number">03 —</div>
-        <h3>Lead Systems</h3>
+        <h4>Lead Systems</h4>
         <p>Automatisierte Kundengewinnung mit Formularen, CRM, KI und intelligenten Echtzeit-Benachrichtigungen.</p>
         <div class="service-price">Ab CHF 600</div>
       </div>
       <div class="service-card">
         <div class="service-number">04 —</div>
-        <h3>AI Podcast Production</h3>
+        <h4>AI Podcast Production</h4>
         <p>Automatisierte Produktionspipeline: Audio-Bereinigung, Transkription, Show Notes und Veröffentlichung. Für Solo-Podcaster.</p>
         <div class="service-price">Ab CHF 490</div>
       </div>
       <div class="service-card">
         <div class="service-number">05 —</div>
-        <h3>Audio Workflow Automation</h3>
+        <h4>Audio Workflow Automation</h4>
         <p>Post-Produktions-Automatisierung für Studios, Agenturen und Produktionsfirmen. Bereinigung, EBU-R128-Normalisierung und automatische QC.</p>
         <div class="service-price">Ab CHF 890</div>
       </div>
       <div class="service-card">
         <div class="service-number">06 —</div>
-        <h3>Landing Pages</h3>
+        <h4>Landing Pages</h4>
         <p>Moderne, minimalistische und konversionsorientierte Websites. Professioneller Internetauftritt für Unternehmen, die auffallen wollen.</p>
         <div class="service-price">Ab CHF 350</div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PROYECTO 01 — AI EMAIL ASSISTANT               -->
-  <!-- ══════════════════════════════════════════════ -->
-  <section id="proyectos" class="fade-up">
+<section id="proyectos" class="fade-up">
     <div class="section-label">Fallstudie</div>
     <div class="project-header">
       <span class="project-number">01 —</span>
@@ -631,129 +667,161 @@
       <span>Google Sheets</span><span>Webhook</span>
     </div>
 
-    <div class="accordion-toggle" onclick="toggleAccordion('acc-email')">
+    
+    <div class="flow-diagram">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arr1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/>
+          </marker>
+        </defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="770" y="40" width="120" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr1)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRIGGER</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">KI-PROZESS</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ALMACÉN</text>
+        <text x="830" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">SALIDA</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Gmail</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Eingehende E-Mail</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Make</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Webhook trigger</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Claude AI</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Clasifica + redacta</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Google Sheets</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Log + prioridad</text>
+        <text x="830" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Dashboard</text>
+        <text x="830" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Resumen diario</text>
+      </svg>
+    </div>
+
+<div class="accordion-toggle" onclick="toggleAccordion('acc-email')">
       <span>Vollständige Fallstudie ansehen — technischer Ablauf, Pakete und Kennzahlen</span>
       <div class="accordion-arrow">↓</div>
     </div>
     <div class="accordion-body" id="acc-email">
       <div class="accordion-body-inner">
 
-        <div class="accordion-section-title">Flujo del sistema</div>
+        <div class="accordion-section-title">Systemablauf</div>
         <div class="flow-list">
           <div class="flow-step">
             <div class="flow-num">01</div>
             <div class="flow-content">
-              <div class="flow-title">Trigger de entrada</div>
-              <div class="flow-desc">Make detecta cada nuevo email en Gmail en tiempo real. Extrae remitente, asunto y cuerpo del mensaje para su análisis.</div>
+              <div class="flow-title">Eingangs-Trigger</div>
+              <div class="flow-desc">Make erkennt jede neue E-Mail in Gmail in Echtzeit. Extrahiert Absender, Betreff und Nachrichtentext para su análisis.</div>
               <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Gmail API</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">02</div>
             <div class="flow-content">
-              <div class="flow-title">Clasificación y análisis con IA</div>
-              <div class="flow-desc">Claude AI procesa el email y devuelve un JSON estructurado: categoría (Ventas, Soporte, Admin, Spam), prioridad (Alta / Media / Baja), resumen ejecutivo en 2 líneas y acción recomendada.</div>
+              <div class="flow-title">KI-Klassifizierung & Analyse</div>
+              <div class="flow-desc">Claude AI verarbeitet die E-Mail und gibt ein strukturiertes JSON zurück: Kategorie (Vertrieb, Support, Admin, Spam), prioridad (Alta / Media / Baja), resumen ejecutivo en 2 líneas y acción recomendada.</div>
               <div class="flow-tools"><span class="flow-tool">Claude AI</span><span class="flow-tool">JSON output</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">03</div>
             <div class="flow-content">
-              <div class="flow-title">Redacción de respuesta sugerida</div>
-              <div class="flow-desc">En el mismo paso, la IA genera una respuesta profesional lista para enviar, adaptada al tono del remitente y al contexto del negocio.</div>
+              <div class="flow-title">Entwurf der vorgeschlagenen Antwort</div>
+              <div class="flow-desc">Im gleichen Schritt generiert die KI eine versandfertige professionelle Antwort, angepasst an den Ton des Absenders und den E-Mail-Typ.</div>
               <div class="flow-tools"><span class="flow-tool">Claude AI</span><span class="flow-tool">Prompt engineering</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">04</div>
             <div class="flow-content">
-              <div class="flow-title">Registro en dashboard</div>
-              <div class="flow-desc">Google Sheets registra cada email con todos los campos: fecha, remitente, asunto, categoría, prioridad, resumen, acción y respuesta sugerida. Una fila por email, formato estructurado y filtrable.</div>
+              <div class="flow-title">Dashboard-Protokollierung</div>
+              <div class="flow-desc">Google Sheets protokolliert jede E-Mail mit allen Feldern: Datum, Absender, Betreff, Kategorie, Priorität, Zusammenfassung und Entwurf. Der Nutzer prüft das Dashboard jeden Morgen.</div>
               <div class="flow-tools"><span class="flow-tool">Google Sheets</span></div>
             </div>
           </div>
         </div>
 
-        <div class="accordion-section-title">Dashboard real — datos del sistema</div>
+        <div class="accordion-section-title">Live-Dashboard — Systemdaten</div>
         <div class="sheet-preview">
           <div class="sheet-header">
             <div class="sheet-header-cell">Remitente</div>
             <div class="sheet-header-cell">Asunto</div>
-            <div class="sheet-header-cell">Categoría</div>
+            <div class="sheet-header-cell">Kategorie</div>
             <div class="sheet-header-cell">Prioridad</div>
-            <div class="sheet-header-cell">Acción recomendada</div>
+            <div class="sheet-header-cell">Empfohlene Aktion</div>
           </div>
           <div class="sheet-row">
             <div class="sheet-cell">Carlos Mendoza · LogiTrans S.A.</div>
-            <div class="sheet-cell">Urgente: Duda sobre presupuesto de desarrollo web</div>
+            <div class="sheet-cell">Dringend: Frage zum Webentwicklungsbudget</div>
             <div class="sheet-cell category">Ventas</div>
             <div class="sheet-cell high">Alta</div>
-            <div class="sheet-cell">Llamada de 10 min mañana para discutir requisitos y tarifas</div>
+            <div class="sheet-cell">10-Min.-Gespräch morgen zur Besprechung von Anforderungen und Preisen</div>
           </div>
           <div class="sheet-row">
             <div class="sheet-cell">Fwd: Carlos Mendoza · LogiTrans S.A.</div>
-            <div class="sheet-cell">Re: Urgente — plazos de entrega y disponibilidad</div>
+            <div class="sheet-cell">Re: Dringend — Lieferfristen und Verfügbarkeit</div>
             <div class="sheet-cell category">Ventas</div>
             <div class="sheet-cell high">Alta</div>
-            <div class="sheet-cell">Contactar inmediatamente para agendar la llamada y confirmar disponibilidad</div>
+            <div class="sheet-cell">Sofort kontaktieren, um das Gespräch zu vereinbaren und Verfügbarkeit zu bestätigen</div>
           </div>
         </div>
 
-        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="accordion-section-title">Service-Pakete</div>
         <div class="tiers-grid">
           <div class="tier-card">
-            <div class="tier-name">Tier 1 — Triage básico</div>
+            <div class="tier-name">Paket 1 — Basis-Triage</div>
             <div class="tier-price">CHF 350–500</div>
-            <div class="tier-note">Setup único</div>
+            <div class="tier-note">Einmalige Einrichtung</div>
             <ul class="tier-list">
-              <li>Gmail + clasificación IA</li>
+              <li>Gmail + KI-Klassifizierung</li>
               <li>Dashboard Google Sheets</li>
-              <li>4 categorías configuradas</li>
+              <li>4 konfigurierte Kategorien</li>
               <li>2 semanas soporte</li>
             </ul>
           </div>
           <div class="tier-card featured">
             <div class="tier-badge">Recomendado</div>
-            <div class="tier-name">Tier 2 — Respuestas automáticas</div>
+            <div class="tier-name">Paket 2 — Automatische Antworten</div>
             <div class="tier-price">CHF 600–900</div>
-            <div class="tier-note">Setup único</div>
+            <div class="tier-note">Einmalige Einrichtung</div>
             <ul class="tier-list">
-              <li>Todo el Tier 1</li>
-              <li>Borrador de respuesta por email</li>
+              <li>Alles aus Paket 1</li>
+              <li>Antwortentwurf pro E-Mail</li>
               <li>Alertas Telegram prioridad alta</li>
-              <li>Categorías personalizadas</li>
+              <li>Kategories personalizadas</li>
               <li>4 semanas soporte</li>
             </ul>
           </div>
           <div class="tier-card">
-            <div class="tier-name">Tier 3 — Integración CRM</div>
-            <div class="tier-price">desde CHF 1.200</div>
-            <div class="tier-note">proyecto a medida</div>
+            <div class="tier-name">Paket 3 — CRM-Integration</div>
+            <div class="tier-price">ab CHF 1.200</div>
+            <div class="tier-note">massgeschneidertes Projekt</div>
             <ul class="tier-list">
               <li>Multi-cuenta</li>
-              <li>Integración CRM existente</li>
-              <li>Categorías y reglas custom</li>
-              <li>Onboarding videollamada</li>
+              <li>Integration in bestehendes CRM</li>
+              <li>Kategories y reglas custom</li>
+              <li>Onboarding per Videoanruf</li>
             </ul>
           </div>
         </div>
 
-        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="accordion-section-title">Systemergebnisse</div>
         <div class="metrics-grid">
-          <div class="metric-card"><div class="metric-num">45'</div><div class="metric-label">Ahorrados cada mañana en revisión de inbox</div></div>
-          <div class="metric-card"><div class="metric-num">100%</div><div class="metric-label">De emails clasificados sin intervención humana</div></div>
-          <div class="metric-card"><div class="metric-num">0</div><div class="metric-label">Leads de alta prioridad perdidos desde la implantación</div></div>
+          <div class="metric-card"><div class="metric-num">45'</div><div class="metric-label">Täglich beim Posteingang-Check gespart</div></div>
+          <div class="metric-card"><div class="metric-num">100%</div><div class="metric-label">Der E-Mails ohne menschlichen Eingriff klassifiziert</div></div>
+          <div class="metric-card"><div class="metric-num">0</div><div class="metric-label">Hochprioritäre Leads seit der Einführung verpasst</div></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PROYECTO 02 — AI LEAD AUTOMATION — AESCHI      -->
-  <!-- ══════════════════════════════════════════════ -->
-  <section class="fade-up">
-    <div class="section-label">Proyecto Destacado</div>
+<section class="fade-up">
+    <div class="section-label">Ausgewähltes Projekt</div>
     <div class="project-header">
       <span class="project-number">02 —</span>
       <h2 class="project-title">AI Lead Automation System — Aeschi Studio</h2>
@@ -780,19 +848,44 @@
       <span>Make</span><span>Gemini AI</span><span>Telegram</span>
       <span>Google Sheets</span><span>Webhook</span><span>Gmail</span><span>GitHub Pages</span>
     </div>
-    <img src="/images/01-landing-page.jpg"      alt="Landing Page"        class="project-image medium center" />
-    <img src="/images/02-contact-form.jpg"       alt="Formulario Contacto" class="project-image small center"  />
-    <img src="/images/03-make-automation.jpg"    alt="Make Automation"     class="project-image large"         />
-    <img src="/images/04-google-sheets-crm.jpg"  alt="Google Sheets CRM"   class="project-image medium center" />
-    <img src="/images/05-telegram-ai.jpg"        alt="Telegram AI"         class="project-image small center"  />
-    <img src="/images/06-email-automation.jpg"   alt="Email Automation"    class="project-image small center"  />
-  </section>
 
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PROYECTO 03 — AI BOOKING — JOTAGRIND           -->
-  <!-- ══════════════════════════════════════════════ -->
-  <section class="fade-up">
-    <div class="section-label">Proyecto Completado</div>
+    <div class="flow-diagram">
+      <svg viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/>
+          </marker>
+        </defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="120" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr2)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRIGGER</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">SCORING IA</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ALERTA</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">CRM</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Formulario</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Eingehender Lead</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Make</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Webhook trigger</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Gemini AI</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Califica + resume</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Benachrichtigung &lt;60s</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Google Sheets</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Registro auto</text>
+      </svg>
+    </div>
+</section>
+
+<section class="fade-up">
+    <div class="section-label">Abgeschlossenes Projekt</div>
     <div class="project-header">
       <span class="project-number">03 —</span>
       <h2 class="project-title">AI Booking System — JotaGrind Studio</h2>
@@ -819,20 +912,49 @@
       <span>Make</span><span>Gemini AI</span><span>Telegram</span>
       <span>Google Sheets</span><span>Webhook</span><span>Vercel</span><span>HTML / CSS / JS</span>
     </div>
-    <img src="/images/jota-01-landing.jpg"       alt="JotaGrind — Landing"          class="project-image large" />
-    <img src="/images/jota-02-form.jpg"           alt="JotaGrind — Formulario"       class="project-image medium center" />
-    <img src="/images/jota-03-make.jpg"           alt="JotaGrind — Make Scenario"    class="project-image large" />
-    <img src="/images/jota-04-sheets-alta.jpg"    alt="Lead Alta — Google Sheets"    class="project-image medium center" />
-    <img src="/images/jota-05-sheets-medium.jpg"  alt="Lead Media — Google Sheets"   class="project-image medium center" />
-    <img src="/images/jota-06-sheets-bajo.jpg"    alt="Lead Bajo — Google Sheets"    class="project-image medium center" />
-    <img src="/images/jota-07-telegram.jpg"       alt="JotaGrind — Telegram Alert"   class="project-image small center" />
-  </section>
 
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PROYECTO 04 — AI PODCAST PRODUCTION SYSTEM     -->
-  <!-- ══════════════════════════════════════════════ -->
-  <section class="fade-up" id="proj-podcast">
-    <div class="section-label">Servicio Activo</div>
+    <div class="flow-diagram">
+      <svg viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs>
+          <marker id="arr3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/>
+          </marker>
+        </defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="960" y="40" width="90"  height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <line x1="910" y1="100" x2="956" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr3)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">CLIENTE</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRIGGER</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">SCORING IA</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ALERTA</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">CRM</text>
+        <text x="1005" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ENTREGA</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Landing</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Reserva</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Make</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Webhook</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Gemini AI</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Lead bewerten</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Benachrichtigung</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Google Sheets</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Registro auto</text>
+        <text x="1005" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Cliente</text>
+        <text x="1005" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Live</text>
+      </svg>
+    </div>
+</section>
+
+<section class="fade-up" id="proj-podcast">
+    <div class="section-label">Aktiver Service</div>
     <div class="project-header">
       <span class="project-number">04 —</span>
       <h2 class="project-title">AI Podcast Production System</h2>
@@ -860,69 +982,104 @@
       <span>Claude API</span><span>Ableton Live</span><span>Telegram</span><span>Google Drive</span>
     </div>
 
-    <div class="accordion-toggle" onclick="toggleAccordion('acc-podcast')">
+    <div class="flow-diagram">
+      <svg viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="arr4" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/></marker></defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="960" y="40" width="90"  height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <line x1="910" y1="100" x2="956" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr4)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">AUDIO</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">TRANSCRIPCIÓN</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">CONTENIDO IA</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ORQUESTA</text>
+        <text x="1005" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">ENTREGA</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Audio bruto</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Subida archivo</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Auphonic</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Limpia + normaliza</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Whisper</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Transkription</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Claude AI</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Notes + Titel</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Make</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Orchestriert</text>
+        <text x="1005" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="1005" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Paquete listo</text>
+      </svg>
+    </div>
+
+<div class="accordion-toggle" onclick="toggleAccordion('acc-podcast')">
       <span>Vollständige Fallstudie ansehen — technischer Ablauf, Pakete und Kennzahlen</span>
       <div class="accordion-arrow">↓</div>
     </div>
     <div class="accordion-body" id="acc-podcast">
       <div class="accordion-body-inner">
 
-        <div class="accordion-section-title">Flujo del sistema</div>
+        <div class="accordion-section-title">Systemablauf</div>
         <div class="flow-list">
           <div class="flow-step">
             <div class="flow-num">01</div>
             <div class="flow-content">
-              <div class="flow-title">Trigger de entrada</div>
-              <div class="flow-desc">Make detecta el archivo nuevo en /ingest/ de Google Drive. Verifica naming convention y registra la entrada en Google Sheets.</div>
+              <div class="flow-title">Eingangs-Trigger</div>
+              <div class="flow-desc">Make erkennt die neue Datei in /ingest/ auf Google Drive. Prüft die Namenskonvention und protokolliert den Eingang im Produktionslog.</div>
               <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Google Drive</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">02</div>
             <div class="flow-content">
-              <div class="flow-title">Limpieza y normalización de audio</div>
-              <div class="flow-desc">Auphonic API aplica reducción de ruido, eliminación de hum y normalización de loudness a -16 LUFS (estándar streaming). Exporta WAV limpio.</div>
+              <div class="flow-title">Audio-Bereinigung & Normalisierung</div>
+              <div class="flow-desc">Auphonic API wendet Rauschreduzierung, Hum-Entfernung und Lautstärkenormalisierung auf -16 LUFS (Streaming-Standard) an. Die bereinigte Datei wird in /processed/ gespeichert.</div>
               <div class="flow-tools"><span class="flow-tool">Auphonic API</span><span class="flow-tool">EBU R128 · -16 LUFS</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">03</div>
             <div class="flow-content">
-              <div class="flow-title">Transcripción con timestamps</div>
-              <div class="flow-desc">Whisper API transcribe el episodio en español con marcas de tiempo por párrafo. El .txt se guarda en Drive como input del siguiente paso.</div>
-              <div class="flow-tools"><span class="flow-tool">Whisper API</span><span class="flow-tool">Español neutro</span></div>
+              <div class="flow-title">Transkription mit Zeitstempeln</div>
+              <div class="flow-desc">Whisper API transkribiert die Episode mit Zeitstempeln pro Absatz. Die .txt-Datei wird in /transcripts/ gespeichert und an das nächste Modul weitergegeben.</div>
+              <div class="flow-tools"><span class="flow-tool">Whisper API</span><span class="flow-tool">Neutrale Sprache</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">04</div>
             <div class="flow-content">
-              <div class="flow-title">Generación de contenido con IA</div>
-              <div class="flow-desc">La transcripción se procesa con Claude API. Devuelve JSON con 3 títulos, descripción para plataformas, show notes, 5 quotes para redes y capítulos con tiempos.</div>
+              <div class="flow-title">KI-Inhaltsgenerierung</div>
+              <div class="flow-desc">Das Transkript wird mit der Claude API verarbeitet. Gibt JSON zurück mit 3 Titeln, Plattformbeschreibung, Show Notes, 5 Social-Zitaten und einer Kapitelliste mit Zeitstempeln.</div>
               <div class="flow-tools"><span class="flow-tool">Claude API</span><span class="flow-tool">JSON output</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">05</div>
             <div class="flow-content">
-              <div class="flow-title">Registro y notificación</div>
-              <div class="flow-desc">Google Sheets registra el episodio con todos los metadatos. Telegram Bot envía al cliente preview del título y link directo a la carpeta de entrega.</div>
+              <div class="flow-title">Protokollierung & Benachrichtigung</div>
+              <div class="flow-desc">Google Sheets protokolliert die Episode mit allen Metadaten. Telegram Bot sendet dem Kunden eine Vorschau des generierten Inhalts zur Überprüfung vor der Veröffentlichung.</div>
               <div class="flow-tools"><span class="flow-tool">Google Sheets</span><span class="flow-tool">Telegram Bot</span></div>
             </div>
           </div>
           <div class="flow-step">
             <div class="flow-num">06</div>
             <div class="flow-content">
-              <div class="flow-title">Publicación automática (Tier 2/3)</div>
-              <div class="flow-desc">Tras la aprobación del cliente vía Telegram, Make sube el episodio a RSS.com o Buzzsprout con título, descripción y capítulos ya rellenados.</div>
+              <div class="flow-title">Automatische Veröffentlichung (Paket 2/3)</div>
+              <div class="flow-desc">Nach Kundenfreigabe via Telegram lädt Make die Episode mit Titel, Beschreibung und Kapiteln auf RSS.com oder Buzzsprout hoch. Ohne manuelle Eingriffe.</div>
               <div class="flow-tools"><span class="flow-tool">RSS.com API</span><span class="flow-tool">Buzzsprout</span></div>
             </div>
           </div>
         </div>
 
-        <div class="accordion-section-title">Ableton Live — Template de grabación incluido en el onboarding</div>
+        <div class="accordion-section-title">Ableton Live — Aufnahme-Template im Onboarding enthalten</div>
         <div class="ableton-callout">
-          <div class="ableton-label">Live Set preconfigurado para el cliente</div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.8;">El cliente recibe un Live Set listo para abrir y grabar. Garantiza que el audio entra al pipeline en condiciones óptimas sin necesidad de conocimientos técnicos de audio.</p>
+          <div class="ableton-label">Vorkonfiguriertes Live-Set für den Kunden</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;">Der Kunde erhält ein sofort einsatzbereites Live-Set zum Öffnen und Aufnehmen. Stellt sicher, dass Audio in optimalen Bedingungen in die Pipeline gelangt – ohne technisches Vorwissens técnicos de audio.</p>
           <div class="ableton-grid">
             <div class="ableton-item"><div class="ableton-fn">Pistas</div><div class="ableton-val">Host + Guest · Mono</div></div>
             <div class="ableton-item"><div class="ableton-fn">Cadena</div><div class="ableton-val">EQ · Gate · Comp · EQ</div></div>
@@ -931,14 +1088,14 @@
           </div>
         </div>
 
-        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="accordion-section-title">Service-Pakete</div>
         <div class="tiers-grid">
           <div class="tier-card">
-            <div class="tier-name">Tier 1 — Listo para grabar</div>
+            <div class="tier-name">Paket 1 — Aufnahmebereit</div>
             <div class="tier-price">CHF 490–690</div>
-            <div class="tier-note">Setup único</div>
+            <div class="tier-note">Einmalige Einrichtung</div>
             <ul class="tier-list">
-              <li>Flujo Make completo</li>
+              <li>Vollständiger Make-Workflow</li>
               <li>Auphonic configurado</li>
               <li>Ableton Live Set</li>
               <li>Telegram Bot activo</li>
@@ -947,44 +1104,43 @@
           </div>
           <div class="tier-card featured">
             <div class="tier-badge">Recomendado</div>
-            <div class="tier-name">Tier 2 — Piloto automático</div>
+            <div class="tier-name">Paket 2 — Autopilot</div>
             <div class="tier-price">CHF 190–290</div>
             <div class="tier-note">por mes</div>
             <ul class="tier-list">
-              <li>Todo el Tier 1</li>
+              <li>Alles aus Paket 1</li>
               <li>Mantenimiento mensual</li>
-              <li>Clips para redes sociales</li>
+              <li>Social-Media-Clips</li>
               <li>Ajustes y mejoras</li>
             </ul>
           </div>
           <div class="tier-card">
-            <div class="tier-name">Tier 3 — Estudio completo</div>
-            <div class="tier-price">desde CHF 1.200</div>
-            <div class="tier-note">proyecto a medida</div>
+            <div class="tier-name">Paket 3 — Vollständiges Studio</div>
+            <div class="tier-price">ab CHF 1.200</div>
+            <div class="tier-note">massgeschneidertes Projekt</div>
             <ul class="tier-list">
-              <li>Integración email + redes</li>
-              <li>Flujo de aprobación</li>
-              <li>Onboarding videollamada</li>
+              <li>E-Mail + Social-Integration</li>
+              <li>Freigabe-Workflow</li>
+              <li>Onboarding per Videoanruf</li>
             </ul>
           </div>
         </div>
 
-        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="accordion-section-title">Systemergebnisse</div>
         <div class="metrics-grid">
-          <div class="metric-card"><div class="metric-num">~15'</div><div class="metric-label">De audio bruto a contenido listo para revisar</div></div>
-          <div class="metric-card"><div class="metric-num">−5h</div><div class="metric-label">Por episodio respecto al flujo manual</div></div>
-          <div class="metric-card"><div class="metric-num">6+</div><div class="metric-label">Entregables generados automáticamente</div></div>
+          <div class="metric-card"><div class="metric-num">~15'</div><div class="metric-label">Von Roh-Audio zu überprüfungsfertigem Inhalt</div></div>
+          <div class="metric-card"><div class="metric-num">−5h</div><div class="metric-label">Pro Episode gegenüber manuellem Workflow</div></div>
+          <div class="metric-card"><div class="metric-num">6+</div><div class="metric-label">Automatisch generierte Ergebnisse</div></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- PROYECTO 05 — AUDIO POST-PRODUCTION AUTOMATION -->
-  <!-- ══════════════════════════════════════════════ -->
-  <section class="fade-up" id="proj-postprod">
-    <div class="section-label">Servicio Activo</div>
+
+
+<section class="fade-up" id="proj-postprod">
+    <div class="section-label">Aktiver Service</div>
     <div class="project-header">
       <span class="project-number">05 —</span>
       <h2 class="project-title">Audio Post-Production Automation Consultant</h2>
@@ -1012,7 +1168,42 @@
       <span>FFmpeg</span><span>Whisper API</span><span>EBU R128</span><span>Telegram</span>
     </div>
 
-    <div class="accordion-toggle" onclick="toggleAccordion('acc-postprod')">
+    <div class="flow-diagram">
+      <svg viewBox="0 0 1060 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+        <defs><marker id="arr5" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="rgba(214,195,165,0.4)"/></marker></defs>
+        <rect x="10"  y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="200" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="390" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="580" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <rect x="770" y="40" width="140" height="120" rx="3" fill="#111" stroke="rgba(255,255,255,0.08)"/>
+        <rect x="960" y="40" width="90"  height="120" rx="3" fill="#111" stroke="rgba(214,195,165,0.25)"/>
+        <line x1="150" y1="100" x2="196" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="340" y1="100" x2="386" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="530" y1="100" x2="576" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="720" y1="100" x2="766" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <line x1="910" y1="100" x2="956" y2="100" stroke="rgba(214,195,165,0.4)" stroke-width="1" marker-end="url(#arr5)"/>
+        <text x="80"  y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ENTRADA</text>
+        <text x="270" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">SEPARACIÓN</text>
+        <text x="460" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">NORMALIZACIÓN</text>
+        <text x="650" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">QC AUTO</text>
+        <text x="840" y="38" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.7)" letter-spacing="0.1em">ORQUESTA</text>
+        <text x="1005" y="38" text-anchor="middle" font-size="16" fill="rgba(214,195,165,0.7)" letter-spacing="0.1em">INFORME</text>
+        <text x="80"  y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Audio bruto</text>
+        <text x="80"  y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Clasificación</text>
+        <text x="270" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Lalal.ai</text>
+        <text x="270" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Separa fuentes</text>
+        <text x="460" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Auphonic</text>
+        <text x="460" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">EBU R128</text>
+        <text x="650" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">FFmpeg</text>
+        <text x="650" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">True Peak + QC</text>
+        <text x="840" y="94" text-anchor="middle" font-size="16" fill="#f5f5f5">Make</text>
+        <text x="840" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Orquesta flujo</text>
+        <text x="1005" y="94" text-anchor="middle" font-size="16" fill="#d6c3a5">Telegram</text>
+        <text x="1005" y="114" text-anchor="middle" font-size="16" fill="rgba(140,140,140,0.8)">Entrega OK</text>
+      </svg>
+    </div>
+
+<div class="accordion-toggle" onclick="toggleAccordion('acc-postprod')">
       <span>Vollständige Fallstudie ansehen — technischer Ablauf, Pakete und Kennzahlen</span>
       <div class="accordion-arrow">↓</div>
     </div>
@@ -1024,7 +1215,7 @@
           <div class="flow-step">
             <div class="flow-num">01</div>
             <div class="flow-content">
-              <div class="flow-title">Ingest y clasificación</div>
+              <div class="flow-title">Eingang & Klassifizierung</div>
               <div class="flow-desc">Make detecta archivos nuevos, analiza nombre y metadata para clasificar el tipo de contenido y enrutar al pipeline correcto. Registra entrada en Sheets.</div>
               <div class="flow-tools"><span class="flow-tool">Make</span><span class="flow-tool">Google Drive</span><span class="flow-tool">Google Sheets</span></div>
             </div>
@@ -1032,7 +1223,7 @@
           <div class="flow-step">
             <div class="flow-num">02</div>
             <div class="flow-content">
-              <div class="flow-title">Separación de fuentes</div>
+              <div class="flow-title">Quellentrennung</div>
               <div class="flow-desc">Lalal.ai API separa voz, ruido de fondo y música en stems independientes. Limpiar cada elemento por separado da resultados significativamente mejores que limpiar el mix completo.</div>
               <div class="flow-tools"><span class="flow-tool">Lalal.ai API</span><span class="flow-tool">Stems separation</span></div>
             </div>
@@ -1040,7 +1231,7 @@
           <div class="flow-step">
             <div class="flow-num">03</div>
             <div class="flow-content">
-              <div class="flow-title">Limpieza y normalización por destino</div>
+              <div class="flow-title">Bereinigung & Normalisierung nach Ziel</div>
               <div class="flow-desc">Auphonic aplica noise reduction, hum removal y de-essing. Loudness ajustado según destino: Broadcast −23 LUFS · Streaming −16 LUFS · YouTube −14 LUFS · Doblaje −18 LUFS + True Peak −1 dBTP.</div>
               <div class="flow-tools"><span class="flow-tool">Auphonic API</span><span class="flow-tool">EBU R128</span><span class="flow-tool">True Peak</span></div>
             </div>
@@ -1048,7 +1239,7 @@
           <div class="flow-step">
             <div class="flow-num">04</div>
             <div class="flow-content">
-              <div class="flow-title">Control de calidad automatizado</div>
+              <div class="flow-title">Automatisierte Qualitätskontrolle</div>
               <div class="flow-desc">FFmpeg webhook verifica LUFS final, True Peak y duración vs original. Si el archivo no pasa el QC, alerta inmediata vía Telegram con el motivo específico.</div>
               <div class="flow-tools"><span class="flow-tool">FFmpeg</span><span class="flow-tool">Telegram Alert</span></div>
             </div>
@@ -1056,7 +1247,7 @@
           <div class="flow-step">
             <div class="flow-num">05</div>
             <div class="flow-content">
-              <div class="flow-title">Subtítulos automáticos</div>
+              <div class="flow-title">Automatische Untertitel</div>
               <div class="flow-desc">Whisper API genera .srt y .vtt para proyectos de doblaje y localización, y .txt con timestamps para edición.</div>
               <div class="flow-tools"><span class="flow-tool">Whisper API</span><span class="flow-tool">.srt · .vtt · .txt</span></div>
             </div>
@@ -1064,44 +1255,44 @@
           <div class="flow-step">
             <div class="flow-num">06</div>
             <div class="flow-content">
-              <div class="flow-title">Empaquetado, informe y entrega</div>
+              <div class="flow-title">Verpackung, Bericht und Lieferung</div>
               <div class="flow-desc">Make organiza la carpeta de entrega. Genera informe técnico con LUFS, True Peak, herramientas y tiempo de procesado. Telegram notifica al técnico con el resumen completo.</div>
               <div class="flow-tools"><span class="flow-tool">Google Drive</span><span class="flow-tool">Informe QC</span><span class="flow-tool">Telegram Bot</span></div>
             </div>
           </div>
         </div>
 
-        <div class="accordion-section-title">Por qué un Técnico Superior de Sonido</div>
+        <div class="accordion-section-title">Warum ein Dipl. Tontechniker</div>
         <div class="diffs-list">
-          <div class="diff-item"><div class="diff-icon">🎚️</div><div><div class="diff-title">Parámetros de loudness con criterio profesional</div><div class="diff-text">EBU R128, −16 LUFS y −14 LUFS no son lo mismo. Cada destino tiene su estándar. El sistema aplica el correcto automáticamente para broadcast, streaming, doblaje o YouTube.</div></div></div>
-          <div class="diff-item"><div class="diff-icon">🔬</div><div><div class="diff-title">Separación de fuentes antes de limpiar</div><div class="diff-text">Limpiar el mix completo da peor resultado que limpiar la voz sola y recombinar. Este orden de operaciones solo lo define alguien que entiende el audio a nivel técnico.</div></div></div>
-          <div class="diff-item"><div class="diff-icon">✅</div><div><div class="diff-title">QC con métricas reales</div><div class="diff-text">El sistema verifica True Peak, LUFS integrado y duración. Son las mismas métricas que piden broadcasters y distribuidoras en sus especificaciones técnicas de entrega.</div></div></div>
-          <div class="diff-item"><div class="diff-icon">🤝</div><div><div class="diff-title">Conversación técnica de igual a igual</div><div class="diff-text">Phase coherence, artifacts del de-noiser, limitaciones del compresor en ciertos materiales. Con el técnico del estudio se habla de tú a tú. Eso genera confianza y reduce fricción.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">🎚️</div><div><div class="diff-title">Lautheitsparameter mit professionellem Urteil</div><div class="diff-text">EBU R128, −16 LUFS y −14 LUFS no son lo mismo. Cada destino tiene su estándar. El sistema aplica el correcto automáticamente para broadcast, streaming, doblaje o YouTube.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">🔬</div><div><div class="diff-title">Quellentrennung antes de limpiar</div><div class="diff-text">Limpiar el mix completo da peor resultado que limpiar la voz sola y recombinar. Este orden de operaciones solo lo define alguien que entiende el audio a nivel técnico.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">✅</div><div><div class="diff-title">QC mit realen Metriken</div><div class="diff-text">El sistema verifica True Peak, LUFS integrado y duración. Son las mismas métricas que piden broadcasters y distribuidoras en sus especificaciones técnicas de entrega.</div></div></div>
+          <div class="diff-item"><div class="diff-icon">🤝</div><div><div class="diff-title">Technisches Gespräch auf Augenhöhe</div><div class="diff-text">Phase coherence, artifacts del de-noiser, limitaciones del compresor en ciertos materiales. Con el técnico del estudio se habla de tú a tú. Eso genera confianza y reduce fricción.</div></div></div>
         </div>
 
-        <div class="accordion-section-title">Tiers de servicio</div>
+        <div class="accordion-section-title">Service-Pakete</div>
         <div class="tiers-grid">
           <div class="tier-card">
-            <div class="tier-name">Tier 1 — Pipeline básico</div>
+            <div class="tier-name">Paket 1 — Basis-Pipeline</div>
             <div class="tier-price">CHF 890–1.200</div>
-            <div class="tier-note">Setup único</div>
+            <div class="tier-note">Einmalige Einrichtung</div>
             <ul class="tier-list">
-              <li>Flujo para 1 tipo de contenido</li>
+              <li>Workflow für 1 Inhaltstyp</li>
               <li>Auphonic configurado</li>
-              <li>QC automático + alertas</li>
+              <li>Automatische QC + Benachrichtigungen</li>
               <li>3 semanas soporte</li>
             </ul>
           </div>
           <div class="tier-card featured">
-            <div class="tier-badge">Más completo</div>
-            <div class="tier-name">Tier 2 — Sistema completo</div>
+            <div class="tier-badge">Vollständigstes Paket</div>
+            <div class="tier-name">Paket 2 — Vollständiges System</div>
             <div class="tier-price">CHF 1.800–2.500</div>
-            <div class="tier-note">Setup único</div>
+            <div class="tier-note">Einmalige Einrichtung</div>
             <ul class="tier-list">
               <li>Tres pipelines completos</li>
-              <li>Lalal.ai separación fuentes</li>
-              <li>Subtítulos automáticos</li>
-              <li>Onboarding videollamada</li>
+              <li>Lalal.ai Quellentrennung</li>
+              <li>Automatische Untertitel</li>
+              <li>Onboarding per Videoanruf</li>
             </ul>
           </div>
           <div class="tier-card">
@@ -1109,27 +1300,26 @@
             <div class="tier-price">CHF 290–490</div>
             <div class="tier-note">por mes</div>
             <ul class="tier-list">
-              <li>Monitoreo del sistema</li>
-              <li>Ajuste de parámetros</li>
+              <li>Systemüberwachung</li>
+              <li>Parameteranpassung</li>
               <li>Nuevos pipelines</li>
               <li>Soporte Telegram</li>
             </ul>
           </div>
         </div>
 
-        <div class="accordion-section-title">Resultados del sistema</div>
+        <div class="accordion-section-title">Systemergebnisse</div>
         <div class="metrics-grid">
-          <div class="metric-card"><div class="metric-num">−80%</div><div class="metric-label">Tiempo de procesado manual por proyecto</div></div>
-          <div class="metric-card"><div class="metric-num">100%</div><div class="metric-label">Consistencia técnica entre archivos del proyecto</div></div>
-          <div class="metric-card"><div class="metric-num">0</div><div class="metric-label">Entregas con error de loudness o True Peak</div></div>
+          <div class="metric-card"><div class="metric-num">−80%</div><div class="metric-label">Manuelle Verarbeitungszeit pro Projekt</div></div>
+          <div class="metric-card"><div class="metric-num">100%</div><div class="metric-label">Technische Konsistenz zwischen Projektdateien</div></div>
+          <div class="metric-card"><div class="metric-num">0</div><div class="metric-label">Lieferungen mit Loudness- oder True-Peak-Fehler</div></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- PROCESO -->
-  <section id="proceso" class="fade-up">
+<section id="proceso" class="fade-up">
     <div class="section-label">Meine Arbeitsweise</div>
     <div class="proceso-grid">
       <div class="proceso-step">
@@ -1152,8 +1342,7 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <section id="contact" class="fade-up">
+<section id="contact" class="fade-up">
     <div class="section-label">Kontakt</div>
     <div class="contact-grid">
       <div class="contact-inner">
